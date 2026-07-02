@@ -1,5 +1,5 @@
 window.TIMESHEET_DATA = {
-  "generatedAt": "2026-07-02T19:32:04",
+  "generatedAt": "2026-07-02T20:50:42",
   "sourceDirectory": "C:\\Users\\Sky.Lu\\Thermo Fisher Scientific\\IT BA Team - Timesheet",
   "sourceUrl": "https://thermofisher.sharepoint.com/:f:/r/sites/ITBATeam/Shared%20Documents/General/Timesheet?csf=1&web=1&e=pvWM7c",
   "appMappingSource": {
@@ -213,13 +213,16 @@ window.TIMESHEET_DATA = {
     }
   ],
   "assumptions": [
-    "Classification is prefix-first: PROJ/Project, CR, MGMT, and SUP map to the four dashboard work buckets.",
-    "Project names are extracted from the brackets after Proj, such as Proj-[Accounting Trans].",
-    "CR system keys are extracted from TFS numbers. When the App List contains the code, the dashboard shows App Name instead of the TFS code.",
-    "Unmatched tracked work remains in Other so naming exceptions can be reviewed.",
-    "Canceled events, all-day events, and reminder-only events are hidden from the default timesheet credit view.",
-    "The dashboard range selector is driven by dates from the imported calendar files. Standard hours equal configured workdays in the selected range times 8 hours.",
-    "PTO is treated as personal time-off credit. Configured holidays reduce standard hours instead of adding Holiday credit."
+    "本报表按 Outlook 日历标题命名规范识别工时类别，主类仅包括 Project、CR、Sup、Mgmt，未匹配的工作事件归入 Other 供复核。",
+    "Project 类按 Proj-[项目名] 识别，方括号中的内容作为项目 / 系统名称。",
+    "CR 类按标题中的 TFS code 识别；若 App List 中存在映射，则报表显示 APP Name 替代 TFS code。",
+    "Sup 类仅取标准前缀值，例如 SUP-INC、SUP-OPS、SUP-ADHOC、SUP-AI、SUP-RPA、SUP-Email；项目 / 系统栏仅保留空格前的 SUP-XXX。",
+    "Mgmt 类仅取标准前缀值，例如 MGMT-REPORT、MGMT-TEAM、MGMT-PLAN；项目 / 系统栏仅保留空格前的 MGMT-XXX。",
+    "时间记录按实际投入计算，支持晚间、周末和节假日工时；最小记录粒度参考 SOP 为 15 分钟。",
+    "同一时间段在 Dashboard 中不处理时间重叠，按导入日历记录直接汇总。",
+    "取消会议、全天事件和提醒类事件默认不计入工时汇总与 credit 口径。",
+    "标准工时 = 当前所选范围内的配置工作日 × 8 小时；节假日从标准工时中扣除，补班日计入标准工时。",
+    "工作负荷 = (工作时间 + PTO) / 标准工时；PTO 计入 credit，Holiday 不额外计入 credit。"
   ],
   "summary": {
     "Dai": {

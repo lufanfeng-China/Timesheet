@@ -86,6 +86,7 @@
               </div>
             </div>
             <div class="member-load" id="memberLoad"></div>
+            <div class="stack-legend global-stack-legend" id="memberLoadLegend" aria-label="工时构成图例"></div>
           </section>
 
           <section class="grid two">
@@ -111,11 +112,12 @@
           </section>
 
           <section class="panel wide">
-            <div class="panel-heading">
+            <div class="panel-heading split">
               <div>
                 <h2>员工项目时间</h2>
-                <p>Proj 取主题中 [] 的项目名称；CR 取主题中的 TFS 编号。</p>
+                <p>Proj 取主题中 [] 的项目名称；CR 取主题中的 TFS 编号；其他类别按主题聚合。</p>
               </div>
+              <div class="inline-filter" id="projectCategoryFilter" aria-label="员工项目时间类别"></div>
             </div>
             <div class="project-spend" id="projectSpend"></div>
           </section>

@@ -28,13 +28,15 @@ const CALENDAR_DATE_RANGE = {
   start: DATA_DATE_RANGE.monthStart || DATA_DATE_RANGE.start,
   end: DATA_DATE_RANGE.monthEnd || DATA_DATE_RANGE.end,
 };
-const DEFAULT_MONTH = DATA_MONTHS.at(-1)?.value || DATA_DATE_RANGE.start.slice(0, 7);
+const DEFAULT_MONTH = DATA.month || DATA_MONTHS[0]?.value || DATA_DATE_RANGE.start.slice(0, 7);
+const PROJECT_SPEND_CATEGORIES = ["Project", "Sup", "CR", "Mgmt", "Other"];
 
 const state = {
   selectedMember: "All",
-  rangeMode: "all",
+  rangeMode: "single",
   selectedMonth: DEFAULT_MONTH,
   selectedMonths: new Set(DATA_MONTHS.map((month) => month.value)),
+  selectedProjectCategories: new Set(PROJECT_SPEND_CATEGORIES),
   rangeStart: DATA_DATE_RANGE.start,
   rangeEnd: DATA_DATE_RANGE.end,
   search: "",
@@ -61,8 +63,10 @@ const els = {
   dailyChart: document.querySelector("#dailyChart"),
   categoryBars: document.querySelector("#categoryBars"),
   projectSpend: document.querySelector("#projectSpend"),
+  projectCategoryFilter: document.querySelector("#projectCategoryFilter"),
   weeklyBalance: document.querySelector("#weeklyBalance"),
   exceptionList: document.querySelector("#exceptionList"),
+  memberLoadLegend: document.querySelector("#memberLoadLegend"),
   eventTable: document.querySelector("#eventTable"),
   tableFooter: document.querySelector("#tableFooter"),
   searchInput: document.querySelector("#searchInput"),
@@ -485,6 +489,25 @@ function renderScopeLine() {
   }
 }
 
+function renderProjectCategoryFilter() {
+  els.projectCategoryFilter.innerHTML = PROJECT_SPEND_CATEGORIES
+    .map((category) => {
+      const pressed = state.selectedProjectCategories.has(category);
+      return `
+        <button
+          type="button"
+          class="filter-chip"
+          data-project-category="${escapeHtml(category)}"
+          aria-pressed="${pressed}">
+          <span class="filter-chip-state" aria-hidden="true"></span>
+          <span class="filter-chip-dot" style="background:${categoryColor(category)}"></span>
+          <span>${escapeHtml(categoryLabel(category))}</span>
+        </button>
+      `;
+    })
+    .join("");
+}
+
 function initControls() {
   els.memberFilter.innerHTML = ["All", ...DATA.members]
     .map((member) => {
@@ -494,6 +517,7 @@ function initControls() {
     .join("");
 
   renderRangeControls();
+  renderProjectCategoryFilter();
 
   els.sourceFiles.innerHTML = DATA.sourceFiles
     .map(
@@ -540,6 +564,20 @@ function attachEvents() {
       item.setAttribute("aria-pressed", String(item === button));
     });
     render();
+  });
+
+  els.projectCategoryFilter.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-project-category]");
+    if (!button) return;
+    const category = button.dataset.projectCategory;
+    if (state.selectedProjectCategories.has(category)) {
+      if (state.selectedProjectCategories.size === 1) return;
+      state.selectedProjectCategories.delete(category);
+    } else {
+      state.selectedProjectCategories.add(category);
+    }
+    renderProjectCategoryFilter();
+    renderProjectSpend();
   });
 
   els.rangeMode.addEventListener("change", (event) => {
@@ -680,26 +718,18 @@ document.addEventListener("click", (event) => {
 function renderKpis() {
   const selectedMembers = getSelectedMembers();
   const work = workEvents();
-  const distribution = distributionEvents();
   const pto = ptoEvents();
   const standard = standardHoursPerMember() * selectedMembers.length;
   const workHours = sumHours(work);
-  const distributionHours = sumHours(distribution);
   const ptoHours = sumHours(pto);
   const creditHours = sumHours(creditEvents());
-  const variance = creditHours - standard;
-  const coverage = workHours ? distributionHours / workHours : 0;
+  const workload = standard ? creditHours / standard : 0;
 
   const kpis = [
     {
       label: "工作时间",
       value: formatHours(workHours),
       delta: "Project / CR / Mgmt / Sup / Other",
-    },
-    {
-      label: "四类分布覆盖",
-      value: formatHours(distributionHours),
-      delta: `${formatPercent(coverage)} 已归入 Project/CR/Mgmt/Sup`,
     },
     {
       label: "PTO",
@@ -712,9 +742,9 @@ function renderKpis() {
       delta: `${selectedMembers.length} 人 × ${configuredWorkdays().length} 工作日 × ${DATA.workdayHours}h`,
     },
     {
-      label: "校验差异",
-      value: formatSignedHours(variance),
-      delta: "工作 + PTO - 标准工时",
+      label: "工作负荷",
+      value: formatPercent(workload),
+      delta: "(工作时间 + PTO) / 标准工时",
     },
   ];
 
@@ -766,19 +796,36 @@ function totalsByCategory(events, categories = DATA.categories) {
   }));
 }
 
-function renderStackSegments(totals, denominator) {
+function renderStackSegments(totals, denominator, { showLabels = false } = {}) {
   let left = 0;
   return totals
     .filter((item) => item.hours > 0)
     .map((item) => {
       const width = denominator ? Math.max(1.5, (item.hours / denominator) * 100) : 0;
       const cappedWidth = Math.max(0, Math.min(width, 100 - left));
+      const share = denominator ? item.hours / denominator : 0;
+      const label = showLabels && cappedWidth >= 9
+        ? `<span class="stack-segment-label">${escapeHtml(formatPercent(share))}</span>`
+        : "";
       const segment = `
         <span class="stack-segment" title="${categoryLabel(item.category)} ${formatHours(item.hours)}"
-          style="left:${left}%;width:${cappedWidth}%;background:${categoryColor(item.category)}"></span>
+          style="left:${left}%;width:${cappedWidth}%;background:${categoryColor(item.category)}">${label}</span>
       `;
       left = Math.min(100, left + width);
       return segment;
+    })
+    .join("");
+}
+
+function renderCategoryLegend(categories) {
+  return categories
+    .map((category) => {
+      return `
+        <span class="stack-legend-item">
+          <span class="stack-legend-dot" style="background:${categoryColor(category)}"></span>
+          <span>${escapeHtml(categoryLabel(category))}</span>
+        </span>
+      `;
     })
     .join("");
 }
@@ -800,7 +847,7 @@ function memberMetrics(member) {
     holidayHours,
     creditHours,
     available,
-    variance: creditHours - standard,
+    workload: standard ? creditHours / standard : 0,
     utilization: available ? workHours / available : 0,
     categoryTotals: totalsByCategory(
       [...memberWork, ...memberPto, ...memberHoliday],
@@ -823,18 +870,20 @@ function renderMemberLoad() {
           </div>
           <div>
             <div class="stacked-bar" aria-label="${escapeHtml(member)} 工时构成">
-              ${renderStackSegments(metrics.categoryTotals, Math.max(metrics.standard, metrics.creditHours, 1))}
+              ${renderStackSegments(metrics.categoryTotals, Math.max(metrics.standard, metrics.creditHours, 1), { showLabels: true })}
             </div>
           </div>
           <div class="member-stats">
             <div class="stat-mini"><strong>${formatHours(metrics.workHours)}</strong><span>工作</span></div>
             <div class="stat-mini"><strong>${formatHours(metrics.ptoHours)}</strong><span>PTO</span></div>
-            <div class="stat-mini"><strong>${formatSignedHours(metrics.variance)}</strong><span>差异</span></div>
+            <div class="stat-mini"><strong>${formatPercent(metrics.workload)}</strong><span>工作负荷</span></div>
           </div>
         </div>
       `;
     })
     .join("");
+
+  els.memberLoadLegend.innerHTML = renderCategoryLegend(["Project", "CR", "Mgmt", "Sup", "Other", "PTO", "Holiday"]);
 }
 
 function renderDailyChart() {
@@ -943,11 +992,23 @@ function renderCategoryBars() {
 function projectRows() {
   const rows = new Map();
   const selectedMembers = getSelectedMembers();
+
+  const projectSpendName = (event) => {
+    if (event.category === "Project") return event.projectName || "Unspecified Project";
+    if (event.category === "CR") return event.crSystem || "Unspecified CR";
+    if (event.category === "Sup" || event.category === "Mgmt") {
+      const prefix = event.category.toUpperCase();
+      const match = (event.subject || "").match(new RegExp(`^${prefix}-[^\\s]+`, "i"));
+      return match ? match[0].toUpperCase() : event.subject || event.workItemName || event.category;
+    }
+    return event.subject || event.workItemName || event.category;
+  };
+
   workEvents()
-    .filter((event) => event.category === "Project" || event.category === "CR")
+    .filter((event) => state.selectedProjectCategories.has(event.category))
     .forEach((event) => {
-      const type = event.category === "Project" ? "Project" : "CR";
-      const name = event.category === "Project" ? event.projectName || "Unspecified Project" : event.crSystem || "Unspecified CR";
+      const type = event.category;
+      const name = projectSpendName(event);
       const key = `${type}|${name}`;
       if (!rows.has(key)) {
         rows.set(key, {
@@ -978,7 +1039,8 @@ function renderProjectSpend() {
   const gridTemplate = `minmax(180px,2fr) 76px repeat(${selectedMembers.length}, minmax(70px,1fr)) 86px`;
 
   if (!rows.length) {
-    els.projectSpend.innerHTML = `<div class="empty-state">当前筛选下没有 Project 或 CR 工作时间。</div>`;
+    const labels = [...state.selectedProjectCategories].map((category) => categoryLabel(category)).join(" / ");
+    els.projectSpend.innerHTML = `<div class="empty-state">当前筛选下没有 ${escapeHtml(labels)} 工作时间。</div>`;
     return;
   }
 
