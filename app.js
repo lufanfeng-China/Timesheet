@@ -291,6 +291,16 @@ function configuredWorkdays() {
   return rangeDays().filter(isConfiguredWorkday);
 }
 
+function dailyChartDays() {
+  const days = new Set(configuredWorkdays());
+  workEvents().forEach((event) => {
+    if (event.hours > 0) {
+      days.add(event.date);
+    }
+  });
+  return [...days].sort((a, b) => a.localeCompare(b));
+}
+
 function weekStart(dateText) {
   const date = dateObject(dateText);
   const day = date.getDay();
@@ -830,7 +840,7 @@ function renderMemberLoad() {
 function renderDailyChart() {
   const members = getSelectedMembers();
   const work = workEvents();
-  const days = configuredWorkdays();
+  const days = dailyChartDays();
   const width = 720;
   const height = 260;
   const margin = { top: 16, right: 18, bottom: 34, left: 42 };
