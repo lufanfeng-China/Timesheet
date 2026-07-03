@@ -920,9 +920,12 @@ function renderCategoryLegend(categories) {
 function workItemDisplayName(event) {
   if (event.category === "Project") return event.projectName || "Unspecified Project";
   if (event.category === "CR") return event.crSystem || "Unspecified CR";
-  if (event.category === "Sup" || event.category === "Mgmt") {
-    const prefix = event.category.toUpperCase();
-    const match = (event.subject || "").match(new RegExp(`^${prefix}-[^\\s]+`, "i"));
+  if (event.category === "Sup") {
+    const match = (event.subject || "").match(/^SUP-(INC|OPS|ADHOC|AI|RPA|EMAIL)\b/i);
+    return match ? match[0].toUpperCase() : event.subject || event.workItemName || event.category;
+  }
+  if (event.category === "Mgmt") {
+    const match = (event.subject || "").match(/^MGMT-(REPORT|TEAM|PLAN)\b/i);
     return match ? match[0].toUpperCase() : event.subject || event.workItemName || event.category;
   }
   return event.subject || event.workItemName || event.category;
