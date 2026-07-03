@@ -91,6 +91,14 @@ def normalize_subject(subject):
     return re.sub(r"\s+", " ", subject or "").strip()
 
 
+def normalize_display_name(value):
+    text = normalize_subject(value)
+    text = re.sub(r"(?<=[\u4e00-\u9fff])\s+(?=[\u4e00-\u9fff])", "", text)
+    text = re.sub(r"(?<=[A-Za-z0-9])\s+(?=[\u4e00-\u9fff])", "", text)
+    text = re.sub(r"(?<=[\u4e00-\u9fff])\s+(?=[A-Za-z0-9])", "", text)
+    return text.strip()
+
+
 def normalize_tfs_code(value):
     text = str(value or "").upper()
     match = re.search(r"\bTFS\s*[-_ ]?(\d{2,5})", text)
@@ -213,10 +221,10 @@ def extract_project_name(subject):
     text = re.sub(r"^Canceled:\s*", "", normalize_subject(subject), flags=re.IGNORECASE)
     bracket = re.search(r"\[([^\]]+)\]", text)
     if bracket:
-        return bracket.group(1).strip()
+        return normalize_display_name(bracket.group(1))
 
     cleaned = re.sub(r"^(PROJ|PROJECT)\s*[-_:\s]+", "", text, flags=re.IGNORECASE)
-    return split_work_name(cleaned) or "Unspecified Project"
+    return normalize_display_name(split_work_name(cleaned)) or "Unspecified Project"
 
 
 def extract_cr_code(subject):

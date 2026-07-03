@@ -1,5 +1,5 @@
 window.TIMESHEET_DATA = {
-  "generatedAt": "2026-07-03T11:59:36",
+  "generatedAt": "2026-07-03T12:03:39",
   "sourceDirectory": "C:\\Users\\Sky.Lu\\Thermo Fisher Scientific\\IT BA Team - Timesheet",
   "sourceUrl": "https://thermofisher.sharepoint.com/:f:/r/sites/ITBATeam/Shared%20Documents/General/Timesheet?csf=1&web=1&e=pvWM7c",
   "appMappingSource": {
@@ -4774,11 +4774,11 @@ window.TIMESHEET_DATA = {
       "subject": "Proj-[DOS 应用原型]开发",
       "prefix": "PROJ",
       "category": "Project",
-      "projectName": "DOS 应用原型",
+      "projectName": "DOS应用原型",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "DOS 应用原型",
+      "workItemName": "DOS应用原型",
       "showTimeAs": "Busy",
       "organizer": "Dai, Qi",
       "location": "",
