@@ -247,7 +247,30 @@
       </div>
     </dialog>
 
-    <script src="data/timesheet-data.js"></script>
-    <script src="app.js"></script>
+    <script>
+      (function bootstrapDashboard() {
+        const cacheBuster = Date.now();
+        const scopeLine = document.querySelector("#scopeLine");
+
+        function showLoadError(error) {
+          if (scopeLine) {
+            scopeLine.textContent = "数据加载失败，请稍后刷新重试。";
+          }
+          console.error(error);
+        }
+
+        const dataScript = document.createElement("script");
+        dataScript.src = `data/timesheet-data.js?v=${cacheBuster}`;
+        dataScript.onerror = () => showLoadError(new Error("Failed to load data script"));
+        dataScript.onload = () => {
+          const appScript = document.createElement("script");
+          appScript.src = `app.js?v=${cacheBuster}`;
+          appScript.onerror = () => showLoadError(new Error("Failed to load app script"));
+          document.body.appendChild(appScript);
+        };
+
+        document.body.appendChild(dataScript);
+      })();
+    </script>
   </body>
 </html>
