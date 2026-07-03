@@ -319,6 +319,11 @@ h2 {
   line-height: 1.45;
 }
 
+.side-link-block {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
 .source-block {
   color: var(--muted);
   font-size: 12px;
