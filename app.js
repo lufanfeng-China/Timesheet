@@ -30,13 +30,18 @@ const CALENDAR_DATE_RANGE = {
 };
 const DEFAULT_MONTH = DATA.month || DATA_MONTHS[0]?.value || DATA_DATE_RANGE.start.slice(0, 7);
 const PROJECT_SPEND_CATEGORIES = ["Project", "Sup", "CR", "Mgmt", "Other"];
+const DETAIL_EVENT_CATEGORIES = ["Project", "Sup", "CR", "Mgmt", "Other", "PTO", "Holiday"];
+const TREND_CATEGORIES = ["Project", "CR", "Sup", "Mgmt"];
 
 const state = {
   selectedMember: "All",
   rangeMode: "single",
   selectedMonth: DEFAULT_MONTH,
   selectedMonths: new Set(DATA_MONTHS.map((month) => month.value)),
-  selectedProjectCategories: new Set(PROJECT_SPEND_CATEGORIES),
+  selectedProjectCategories: new Set(["Project"]),
+  selectedDetailCategories: new Set(DETAIL_EVENT_CATEGORIES),
+  selectedTrendCategory: "Project",
+  selectedTrendItem: "",
   rangeStart: DATA_DATE_RANGE.start,
   rangeEnd: DATA_DATE_RANGE.end,
   search: "",
@@ -64,8 +69,10 @@ const els = {
   categoryBars: document.querySelector("#categoryBars"),
   projectSpend: document.querySelector("#projectSpend"),
   projectCategoryFilter: document.querySelector("#projectCategoryFilter"),
-  weeklyBalance: document.querySelector("#weeklyBalance"),
-  exceptionList: document.querySelector("#exceptionList"),
+  detailCategoryFilter: document.querySelector("#detailCategoryFilter"),
+  trendCategoryFilter: document.querySelector("#trendCategoryFilter"),
+  trendItemSelect: document.querySelector("#trendItemSelect"),
+  weeklyTrendChart: document.querySelector("#weeklyTrendChart"),
   memberLoadLegend: document.querySelector("#memberLoadLegend"),
   eventTable: document.querySelector("#eventTable"),
   tableFooter: document.querySelector("#tableFooter"),
@@ -385,11 +392,16 @@ function passesSearch(event) {
     .includes(query);
 }
 
+function passesDetailCategory(event) {
+  return state.selectedDetailCategories.has(event.category);
+}
+
 function visibleEvents({ includeSearch = true } = {}) {
   return DATA.events
     .filter(isInMemberScope)
     .filter((event) => dateInSelectedRange(event.date))
     .filter(passesDisplayToggles)
+    .filter(passesDetailCategory)
     .filter((event) => (includeSearch ? passesSearch(event) : true))
     .sort((a, b) => a.start.localeCompare(b.start));
 }
@@ -508,6 +520,79 @@ function renderProjectCategoryFilter() {
     .join("");
 }
 
+function renderDetailCategoryFilter() {
+  els.detailCategoryFilter.innerHTML = DETAIL_EVENT_CATEGORIES
+    .map((category) => {
+      const pressed = state.selectedDetailCategories.has(category);
+      return `
+        <button
+          type="button"
+          class="filter-chip"
+          data-detail-category="${escapeHtml(category)}"
+          aria-pressed="${pressed}">
+          <span class="filter-chip-state" aria-hidden="true"></span>
+          <span class="filter-chip-dot" style="background:${categoryColor(category)}"></span>
+          <span>${escapeHtml(categoryLabel(category))}</span>
+        </button>
+      `;
+    })
+    .join("");
+}
+
+function trendItemOptions() {
+  const rows = new Map();
+  workEvents()
+    .filter((event) => event.category === state.selectedTrendCategory)
+    .forEach((event) => {
+      const name = workItemDisplayName(event);
+      if (!rows.has(name)) {
+        rows.set(name, { name, total: 0 });
+      }
+      rows.get(name).total += event.hours;
+    });
+
+  return [...rows.values()]
+    .map((row) => ({ ...row, total: Math.round(row.total * 100) / 100 }))
+    .sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
+}
+
+function syncTrendSelection() {
+  const options = trendItemOptions();
+  const selectedExists = options.some((item) => item.name === state.selectedTrendItem);
+  if (!selectedExists) {
+    state.selectedTrendItem = options[0]?.name || "";
+  }
+  return options;
+}
+
+function renderTrendControls() {
+  els.trendCategoryFilter.innerHTML = TREND_CATEGORIES
+    .map((category) => {
+      const pressed = state.selectedTrendCategory === category;
+      return `
+        <button
+          type="button"
+          class="filter-chip"
+          data-trend-category="${escapeHtml(category)}"
+          aria-pressed="${pressed}">
+          <span class="filter-chip-state" aria-hidden="true"></span>
+          <span class="filter-chip-dot" style="background:${categoryColor(category)}"></span>
+          <span>${escapeHtml(categoryLabel(category))}</span>
+        </button>
+      `;
+    })
+    .join("");
+
+  const options = syncTrendSelection();
+  els.trendItemSelect.innerHTML = options.length
+    ? options
+        .map((item) => `<option value="${escapeHtml(item.name)}">${escapeHtml(item.name)}</option>`)
+        .join("")
+    : `<option value="">当前范围内无可选项</option>`;
+  els.trendItemSelect.value = state.selectedTrendItem;
+  els.trendItemSelect.disabled = !options.length;
+}
+
 function initControls() {
   els.memberFilter.innerHTML = ["All", ...DATA.members]
     .map((member) => {
@@ -518,6 +603,8 @@ function initControls() {
 
   renderRangeControls();
   renderProjectCategoryFilter();
+  renderDetailCategoryFilter();
+  renderTrendControls();
 
   els.sourceFiles.innerHTML = DATA.sourceFiles
     .map(
@@ -578,6 +665,34 @@ function attachEvents() {
     }
     renderProjectCategoryFilter();
     renderProjectSpend();
+  });
+
+  els.detailCategoryFilter.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-detail-category]");
+    if (!button) return;
+    const category = button.dataset.detailCategory;
+    if (state.selectedDetailCategories.has(category)) {
+      if (state.selectedDetailCategories.size === 1) return;
+      state.selectedDetailCategories.delete(category);
+    } else {
+      state.selectedDetailCategories.add(category);
+    }
+    renderDetailCategoryFilter();
+    renderTable();
+  });
+
+  els.trendCategoryFilter.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-trend-category]");
+    if (!button) return;
+    state.selectedTrendCategory = button.dataset.trendCategory;
+    state.selectedTrendItem = "";
+    renderTrendControls();
+    renderWeeklyTrend();
+  });
+
+  els.trendItemSelect.addEventListener("change", (event) => {
+    state.selectedTrendItem = event.target.value;
+    renderWeeklyTrend();
   });
 
   els.rangeMode.addEventListener("change", (event) => {
@@ -830,10 +945,25 @@ function renderCategoryLegend(categories) {
     .join("");
 }
 
+function workItemDisplayName(event) {
+  if (event.category === "Project") return event.projectName || "Unspecified Project";
+  if (event.category === "CR") return event.crSystem || "Unspecified CR";
+  if (event.category === "Sup" || event.category === "Mgmt") {
+    const prefix = event.category.toUpperCase();
+    const match = (event.subject || "").match(new RegExp(`^${prefix}-[^\\s]+`, "i"));
+    return match ? match[0].toUpperCase() : event.subject || event.workItemName || event.category;
+  }
+  return event.subject || event.workItemName || event.category;
+}
+
 function memberMetrics(member) {
   const memberWork = workEvents().filter((event) => event.member === member);
   const memberPto = ptoEvents().filter((event) => event.member === member);
   const memberHoliday = holidayEvents().filter((event) => event.member === member);
+  const workCategoryTotals = totalsByCategory(
+    memberWork,
+    ["Project", "CR", "Mgmt", "Sup", "Other"]
+  );
   const standard = standardHoursPerMember();
   const workHours = sumHours(memberWork);
   const ptoHours = sumHours(memberPto);
@@ -849,10 +979,7 @@ function memberMetrics(member) {
     available,
     workload: standard ? creditHours / standard : 0,
     utilization: available ? workHours / available : 0,
-    categoryTotals: totalsByCategory(
-      [...memberWork, ...memberPto, ...memberHoliday],
-      ["Project", "CR", "Mgmt", "Sup", "Other", "PTO", "Holiday"]
-    ),
+    categoryTotals: workCategoryTotals,
   };
 }
 
@@ -870,7 +997,7 @@ function renderMemberLoad() {
           </div>
           <div>
             <div class="stacked-bar" aria-label="${escapeHtml(member)} 工时构成">
-              ${renderStackSegments(metrics.categoryTotals, Math.max(metrics.standard, metrics.creditHours, 1), { showLabels: true })}
+              ${renderStackSegments(metrics.categoryTotals, Math.max(metrics.workHours, 1), { showLabels: true })}
             </div>
           </div>
           <div class="member-stats">
@@ -883,7 +1010,7 @@ function renderMemberLoad() {
     })
     .join("");
 
-  els.memberLoadLegend.innerHTML = renderCategoryLegend(["Project", "CR", "Mgmt", "Sup", "Other", "PTO", "Holiday"]);
+  els.memberLoadLegend.innerHTML = renderCategoryLegend(["Project", "CR", "Mgmt", "Sup", "Other"]);
 }
 
 function renderDailyChart() {
@@ -993,22 +1120,11 @@ function projectRows() {
   const rows = new Map();
   const selectedMembers = getSelectedMembers();
 
-  const projectSpendName = (event) => {
-    if (event.category === "Project") return event.projectName || "Unspecified Project";
-    if (event.category === "CR") return event.crSystem || "Unspecified CR";
-    if (event.category === "Sup" || event.category === "Mgmt") {
-      const prefix = event.category.toUpperCase();
-      const match = (event.subject || "").match(new RegExp(`^${prefix}-[^\\s]+`, "i"));
-      return match ? match[0].toUpperCase() : event.subject || event.workItemName || event.category;
-    }
-    return event.subject || event.workItemName || event.category;
-  };
-
   workEvents()
     .filter((event) => state.selectedProjectCategories.has(event.category))
     .forEach((event) => {
       const type = event.category;
-      const name = projectSpendName(event);
+      const name = workItemDisplayName(event);
       const key = `${type}|${name}`;
       if (!rows.has(key)) {
         rows.set(key, {
@@ -1069,101 +1185,85 @@ function renderProjectSpend() {
   els.projectSpend.innerHTML = `${header}${body}`;
 }
 
-function weeklyRows() {
-  const targets = weekTargets();
-  return getSelectedMembers().flatMap((member) => {
-    return targets.map((target) => {
-      const scoped = scopedEvents()
-        .filter((event) => event.member === member)
-        .filter((event) => event.weekStart === target.weekStart)
-        .filter(isTrackedEvent);
-      const work = scoped.filter(isWorkEvent);
-      const pto = scoped.filter(isPtoEvent);
-      const holiday = scoped.filter(isHolidayEvent);
-      const workHours = sumHours(work);
-      const ptoHours = sumHours(pto);
-      const holidayHours = sumHours(holiday);
-      const creditHours = workHours + ptoHours;
-      return {
-        member,
-        ...target,
-        workHours,
-        ptoHours,
-        holidayHours,
-        creditHours,
-        varianceHours: creditHours - target.targetHours,
-        categoryHours: Object.fromEntries(
-          totalsByCategory(scoped, ["Project", "CR", "Mgmt", "Sup", "Other", "PTO", "Holiday"])
-            .map((item) => [item.category, item.hours])
-        ),
-      };
-    });
+function weeklyTrendRows() {
+  const weeks = [...new Set(rangeDays().map((day) => weekStart(day)))].sort((a, b) => a.localeCompare(b));
+  const targetName = state.selectedTrendItem;
+  const scoped = workEvents()
+    .filter((event) => event.category === state.selectedTrendCategory)
+    .filter((event) => workItemDisplayName(event) === targetName);
+  const totals = new Map();
+  scoped.forEach((event) => {
+    totals.set(event.weekStart, (totals.get(event.weekStart) || 0) + event.hours);
   });
+
+  return weeks.map((week) => ({
+    weekStart: week,
+    weekEnd: weekEnd(week),
+    hours: Math.round(((totals.get(week) || 0) + Number.EPSILON) * 100) / 100,
+  }));
 }
 
-function renderWeeklyBalance() {
-  const rows = weeklyRows();
+function renderWeeklyTrend() {
+  const options = syncTrendSelection();
+  const rows = weeklyTrendRows();
+  const width = 720;
+  const height = 280;
+  const margin = { top: 18, right: 18, bottom: 42, left: 42 };
+  const plotWidth = width - margin.left - margin.right;
+  const plotHeight = height - margin.top - margin.bottom;
+  const maxValue = Math.max(8, ...rows.map((row) => row.hours));
+  const yMax = Math.ceil(maxValue / 2) * 2;
+  const ticks = [0, yMax / 2, yMax];
 
-  if (!rows.length) {
-    els.weeklyBalance.innerHTML = `<div class="empty-state">当前日历配置下没有工作周。</div>`;
+  if (!options.length || !state.selectedTrendItem) {
+    els.weeklyTrendChart.innerHTML = `<div class="empty-state">当前筛选下没有可分析的 ${escapeHtml(categoryLabel(state.selectedTrendCategory))} 项目 / 系统。</div>`;
     return;
   }
 
-  els.weeklyBalance.innerHTML = rows
-    .map((row) => {
-      const status =
-        Math.abs(row.varianceHours) <= 0.25
-          ? "balanced"
-          : row.varianceHours < 0
-            ? "under"
-            : "over";
-      const totals = ["Project", "CR", "Mgmt", "Sup", "Other", "PTO", "Holiday"].map((category) => ({
-        category,
-        hours: row.categoryHours[category] || 0,
-      }));
+  if (!rows.length) {
+    els.weeklyTrendChart.innerHTML = `<div class="empty-state">当前范围内没有周趋势数据。</div>`;
+    return;
+  }
+
+  const xFor = (index) => margin.left + (index / Math.max(1, rows.length)) * plotWidth;
+  const barWidth = Math.max(22, Math.min(64, plotWidth / Math.max(rows.length, 1) - 12));
+  const yFor = (value) => margin.top + plotHeight - (value / yMax) * plotHeight;
+
+  const grid = ticks
+    .map((tick) => {
+      const y = yFor(tick);
       return `
-        <div class="weekly-row ${status}">
-          <div>
-            <strong>${escapeHtml(row.member)}</strong>
-            <span>${escapeHtml(row.weekStart.slice(5))} - ${escapeHtml(row.weekEnd.slice(5))}</span>
-          </div>
-          <div class="stacked-bar compact">
-            ${renderStackSegments(totals, Math.max(row.targetHours, row.creditHours, 1))}
-          </div>
-          <div class="weekly-numbers">
-            <strong>${formatHours(row.creditHours)} / ${formatHours(row.targetHours)}</strong>
-            <span>${formatSignedHours(row.varianceHours)}</span>
-          </div>
-        </div>
+        <line class="grid-line" x1="${margin.left}" y1="${y}" x2="${width - margin.right}" y2="${y}"></line>
+        <text class="axis-label" x="8" y="${y + 4}">${formatHours(tick)}</text>
       `;
     })
     .join("");
-}
 
-function renderExceptions() {
-  const exceptions = workEvents()
-    .filter((event) => event.category === "Other")
-    .sort((a, b) => b.hours - a.hours || a.start.localeCompare(b.start))
-    .slice(0, 12);
-
-  if (!exceptions.length) {
-    els.exceptionList.innerHTML = `<div class="empty-state">当前筛选下没有 Other 工作事件。</div>`;
-    return;
-  }
-
-  els.exceptionList.innerHTML = exceptions
-    .map(
-      (event) => `
-        <div class="exception-row">
-          <div>
-            <strong>${escapeHtml(event.subject)}</strong>
-            <span>${escapeHtml(event.member)} · ${escapeHtml(event.date)} · prefix: ${escapeHtml(event.prefix || "N/A")}</span>
-          </div>
-          <b>${formatHours(event.hours)}</b>
-        </div>
-      `
-    )
+  const bars = rows
+    .map((row, index) => {
+      const x = xFor(index) + ((plotWidth / Math.max(rows.length, 1)) - barWidth) / 2;
+      const barHeight = row.hours > 0 ? Math.max(4, (row.hours / yMax) * plotHeight) : 2;
+      const y = margin.top + plotHeight - barHeight;
+      const label = row.hours > 0 ? `<text class="bar-top-label" x="${x + barWidth / 2}" y="${y - 6}">${formatHours(row.hours)}</text>` : "";
+      return `
+        <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="6" ry="6" fill="${categoryColor(state.selectedTrendCategory)}"></rect>
+        ${label}
+        <text class="axis-label" x="${x + barWidth / 2 - 22}" y="${height - 8}">${escapeHtml(row.weekStart.slice(5))}</text>
+      `;
+    })
     .join("");
+
+  const total = sumHours(rows);
+  els.weeklyTrendChart.innerHTML = `
+    <div class="trend-summary">
+      <strong>${escapeHtml(categoryLabel(state.selectedTrendCategory))}</strong>
+      <span>${escapeHtml(state.selectedTrendItem)} · ${formatHours(total)} · ${rows.length} 周</span>
+    </div>
+    <svg class="daily-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="按周趋势柱状图">
+      ${grid}
+      ${bars}
+    </svg>
+  `;
 }
 
 function renderTable() {
@@ -1188,7 +1288,7 @@ function renderTable() {
         event.allDay ? "All day" : "",
         event.isReminder ? "Reminder" : "",
       ].filter(Boolean);
-      const itemName = event.category === "Project" ? event.projectName : event.category === "CR" ? event.crSystem : event.workItemName;
+      const itemName = workItemDisplayName(event);
       return `
         <tr>
           <td>${escapeHtml(event.date)}</td>
@@ -1251,14 +1351,14 @@ function exportCsv() {
 }
 
 function render() {
+  renderTrendControls();
   renderKpis();
   renderNotice();
   renderMemberLoad();
   renderDailyChart();
   renderCategoryBars();
   renderProjectSpend();
-  renderWeeklyBalance();
-  renderExceptions();
+  renderWeeklyTrend();
   renderTable();
   renderCalendarConfig();
 }

@@ -122,26 +122,21 @@
             <div class="project-spend" id="projectSpend"></div>
           </section>
 
-          <section class="grid two">
-            <article class="panel">
-              <div class="panel-heading">
-                <div>
-                <h2>每周标准工时校验</h2>
-                  <p>每周目标按该周落在当前选择范围内的配置工作日折算。</p>
-                </div>
+          <section class="panel wide">
+            <div class="panel-heading split">
+              <div>
+                <h2>按周趋势</h2>
+                <p>按周查看选定项目 / 系统的工时趋势，最小颗粒度为项目 / 系统。</p>
               </div>
-              <div class="weekly-list" id="weeklyBalance"></div>
-            </article>
-
-            <article class="panel">
-              <div class="panel-heading">
-                <div>
-                  <h2>命名规范复核</h2>
-                  <p>未匹配 Project、CR、Mgmt、Sup 的工作事件会进入 Other。</p>
-                </div>
+              <div class="trend-tools">
+                <div class="inline-filter" id="trendCategoryFilter" aria-label="按周趋势类别"></div>
+                <label class="field-label compact-field">
+                  <span>项目 / 系统</span>
+                  <select id="trendItemSelect"></select>
+                </label>
               </div>
-              <div class="exception-list" id="exceptionList"></div>
-            </article>
+            </div>
+            <div class="chart-frame" id="weeklyTrendChart"></div>
           </section>
 
           <section class="panel wide">
@@ -150,10 +145,13 @@
                 <h2>明细事件</h2>
                 <p>用于核对具体日历条目，默认按日期和开始时间排序。</p>
               </div>
-              <label class="search-box">
-                <span>搜索</span>
-                <input id="searchInput" type="search" placeholder="主题、成员、分类、项目" />
-              </label>
+              <div class="detail-tools">
+                <div class="inline-filter" id="detailCategoryFilter" aria-label="明细事件类别"></div>
+                <label class="search-box">
+                  <span>搜索</span>
+                  <input id="searchInput" type="search" placeholder="主题、成员、分类、项目" />
+                </label>
+              </div>
             </div>
             <div class="table-wrap">
               <table>

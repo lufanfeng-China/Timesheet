@@ -271,6 +271,18 @@ h2 {
   color: var(--ink);
 }
 
+.compact-field {
+  width: 260px;
+  min-width: 260px;
+  max-width: 260px;
+}
+
+.compact-field select {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .date-range-panel {
   display: grid;
   gap: 10px;
@@ -416,7 +428,7 @@ h2 {
 
 .member-row {
   display: grid;
-  grid-template-columns: minmax(110px, 0.8fr) minmax(220px, 2.2fr) minmax(210px, 1.3fr);
+  grid-template-columns: minmax(110px, 0.72fr) minmax(320px, 2.9fr) minmax(180px, 1fr);
   gap: 18px;
   align-items: center;
   padding: 16px 0;
@@ -507,12 +519,12 @@ h2 {
 .member-stats {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
+  gap: 6px;
 }
 
 .stat-mini {
-  min-height: 54px;
-  padding: 8px 10px;
+  min-height: 50px;
+  padding: 7px 9px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fbfcfd;
@@ -520,17 +532,34 @@ h2 {
 
 .stat-mini strong {
   display: block;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .stat-mini span {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .chart-frame {
   width: 100%;
   min-height: 276px;
+}
+
+.trend-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.trend-summary strong {
+  font-size: 14px;
+}
+
+.trend-summary span {
+  color: var(--muted);
+  font-size: 12px;
 }
 
 .daily-svg {
@@ -542,6 +571,13 @@ h2 {
 .axis-label {
   fill: var(--muted);
   font-size: 11px;
+}
+
+.bar-top-label {
+  fill: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  text-anchor: middle;
 }
 
 .grid-line {
@@ -692,6 +728,33 @@ h2 {
   gap: 8px;
   color: var(--muted);
   font-size: 13px;
+}
+
+.detail-tools {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+}
+
+.trend-tools {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 12px;
+  min-width: 0;
+}
+
+.trend-tools .inline-filter {
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.trend-tools .compact-field {
+  flex: 0 0 260px;
 }
 
 .search-box input {
