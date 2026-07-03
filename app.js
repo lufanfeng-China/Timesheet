@@ -60,8 +60,6 @@ const els = {
   singleMonthPanel: document.querySelector("#singleMonthPanel"),
   multiMonthPanel: document.querySelector("#multiMonthPanel"),
   customRangePanel: document.querySelector("#customRangePanel"),
-  sourceFiles: document.querySelector("#sourceFiles"),
-  sourceUrl: document.querySelector("#sourceUrl"),
   kpis: document.querySelector("#kpis"),
   noticeBar: document.querySelector("#noticeBar"),
   memberLoad: document.querySelector("#memberLoad"),
@@ -605,31 +603,6 @@ function initControls() {
   renderProjectCategoryFilter();
   renderDetailCategoryFilter();
   renderTrendControls();
-
-  els.sourceFiles.innerHTML = DATA.sourceFiles
-    .map(
-      (source) => `
-        <div class="source-file">
-          <span>${escapeHtml(source.member)}</span>
-          <strong>${source.rows}</strong>
-        </div>
-      `
-    )
-    .join("");
-  if (DATA.appMappingSource) {
-    els.sourceFiles.innerHTML += `
-      <div class="source-file">
-        <span>APP mapping</span>
-        <strong>${DATA.appMappingSource.mappedCodes}</strong>
-      </div>
-    `;
-  }
-
-  if (DATA.sourceUrl) {
-    els.sourceUrl.href = DATA.sourceUrl;
-  } else {
-    els.sourceUrl.remove();
-  }
 
   renderScopeLine();
 

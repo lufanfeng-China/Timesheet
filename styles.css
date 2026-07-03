@@ -157,7 +157,7 @@ h2 {
 
 .workspace {
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
+  grid-template-columns: 190px minmax(0, 1fr);
   gap: 0;
 }
 
@@ -166,7 +166,7 @@ h2 {
   top: 89px;
   align-self: start;
   min-height: calc(100vh - 89px);
-  padding: 24px 20px;
+  padding: 20px 12px;
   border-right: 1px solid var(--line);
   background: #fbfcfd;
 }
@@ -192,7 +192,7 @@ h2 {
 
 .segmented {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 6px;
 }
 
