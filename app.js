@@ -41,7 +41,7 @@ const state = {
   selectedProjectCategories: new Set(["Project"]),
   selectedDetailCategories: new Set(DETAIL_EVENT_CATEGORIES),
   selectedTrendCategory: "Project",
-  selectedTrendItem: "",
+  selectedTrendItem: "All",
   rangeStart: DATA_DATE_RANGE.start,
   rangeEnd: DATA_DATE_RANGE.end,
   search: "",
@@ -556,9 +556,9 @@ function trendItemOptions() {
 
 function syncTrendSelection() {
   const options = trendItemOptions();
-  const selectedExists = options.some((item) => item.name === state.selectedTrendItem);
-  if (!selectedExists) {
-    state.selectedTrendItem = options[0]?.name || "";
+  const allowedValues = ["All", ...options.map((item) => item.name)];
+  if (!allowedValues.includes(state.selectedTrendItem)) {
+    state.selectedTrendItem = "All";
   }
   return options;
 }
@@ -582,13 +582,12 @@ function renderTrendControls() {
     .join("");
 
   const options = syncTrendSelection();
-  els.trendItemSelect.innerHTML = options.length
-    ? options
-        .map((item) => `<option value="${escapeHtml(item.name)}">${escapeHtml(item.name)}</option>`)
-        .join("")
-    : `<option value="">当前范围内无可选项</option>`;
+  els.trendItemSelect.innerHTML = [
+    `<option value="All">All</option>`,
+    ...options.map((item) => `<option value="${escapeHtml(item.name)}">${escapeHtml(item.name)}</option>`),
+  ].join("");
   els.trendItemSelect.value = state.selectedTrendItem;
-  els.trendItemSelect.disabled = !options.length;
+  els.trendItemSelect.disabled = false;
 }
 
 function initControls() {
@@ -658,7 +657,7 @@ function attachEvents() {
     const button = event.target.closest("button[data-trend-category]");
     if (!button) return;
     state.selectedTrendCategory = button.dataset.trendCategory;
-    state.selectedTrendItem = "";
+    state.selectedTrendItem = "All";
     renderTrendControls();
     renderWeeklyTrend();
   });
@@ -1163,7 +1162,7 @@ function weeklyTrendRows() {
   const targetName = state.selectedTrendItem;
   const scoped = workEvents()
     .filter((event) => event.category === state.selectedTrendCategory)
-    .filter((event) => workItemDisplayName(event) === targetName);
+    .filter((event) => targetName === "All" || workItemDisplayName(event) === targetName);
   const totals = new Map();
   scoped.forEach((event) => {
     totals.set(event.weekStart, (totals.get(event.weekStart) || 0) + event.hours);
@@ -1188,7 +1187,7 @@ function renderWeeklyTrend() {
   const yMax = Math.ceil(maxValue / 2) * 2;
   const ticks = [0, yMax / 2, yMax];
 
-  if (!options.length || !state.selectedTrendItem) {
+  if (!options.length && state.selectedTrendItem !== "All") {
     els.weeklyTrendChart.innerHTML = `<div class="empty-state">当前筛选下没有可分析的 ${escapeHtml(categoryLabel(state.selectedTrendCategory))} 项目 / 系统。</div>`;
     return;
   }
