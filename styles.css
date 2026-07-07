@@ -909,10 +909,15 @@ td.hours {
 }
 
 dialog {
-  width: min(620px, calc(100vw - 32px));
+  padding: 0;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: 0 30px 80px rgba(31, 35, 40, 0.22);
+  overflow: hidden;
+}
+
+.wide-shell {
+  width: min(840px, calc(100vw - 32px));
 }
 
 dialog::backdrop {
@@ -924,7 +929,13 @@ dialog::backdrop {
 }
 
 .dialog-content {
+  width: min(620px, calc(100vw - 32px));
+  box-sizing: border-box;
   padding: 18px;
+}
+
+.dialog-content.wide-dialog {
+  width: 100%;
 }
 
 .dialog-content ul {

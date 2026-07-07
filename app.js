@@ -1,4 +1,5 @@
 const DATA = window.TIMESHEET_DATA;
+const SHARED_CALENDAR_CONFIG = window.TIMESHEET_SHARED_CALENDAR_CONFIG || { overrides: {} };
 const CONFIG_KEY = "timesheet-calendar-config-v2";
 const LEGACY_CONFIG_KEY = DATA.month ? `timesheet-calendar-config-${DATA.month}` : "";
 
@@ -110,17 +111,16 @@ function defaultCalendarConfig() {
 }
 
 function loadCalendarConfig() {
-  try {
-    for (const key of [CONFIG_KEY, LEGACY_CONFIG_KEY].filter(Boolean)) {
-      const saved = localStorage.getItem(key);
-      if (!saved) continue;
-      const parsed = JSON.parse(saved);
-      return { overrides: parsed.overrides || {} };
-    }
-  } catch {
-    // Ignore corrupt local settings and fall back to detected holidays.
-  }
-  return defaultCalendarConfig();
+  const config = defaultCalendarConfig();
+  Object.entries(SHARED_CALENDAR_CONFIG.overrides || {}).forEach(([date, item]) => {
+    if (!date || !item || !["holiday", "workday"].includes(item.type)) return;
+    config.overrides[date] = {
+      type: item.type,
+      name: item.name || (item.type === "holiday" ? "节假日" : "工作日"),
+      source: item.source || "shared-config",
+    };
+  });
+  return config;
 }
 
 function saveCalendarConfig() {
@@ -609,9 +609,27 @@ function initControls() {
     .map((item) => `<li>${escapeHtml(item)}</li>`)
     .join("");
 
-  els.overrideDate.min = CALENDAR_DATE_RANGE.start;
-  els.overrideDate.max = CALENDAR_DATE_RANGE.end;
-  els.overrideDate.value = els.overrideDate.min;
+  if (els.overrideDate) {
+    els.overrideDate.min = CALENDAR_DATE_RANGE.start;
+    els.overrideDate.max = CALENDAR_DATE_RANGE.end;
+    els.overrideDate.value = els.overrideDate.min;
+  }
+  decorateSharedCalendarConfig();
+}
+
+function decorateSharedCalendarConfig() {
+  const configGrid = document.querySelector(".calendar-config-grid");
+  const calendarLists = document.querySelector(".calendar-lists");
+  const listSections = els.calendarDialog?.querySelectorAll(".calendar-lists section") || [];
+
+  if (configGrid) configGrid.style.display = "none";
+  if (calendarLists) calendarLists.style.gridTemplateColumns = "minmax(0, 1fr)";
+  if (listSections[0]) {
+    const title = listSections[0].querySelector("h3");
+    if (title) title.textContent = "配置日期";
+  }
+  if (listSections[1]) listSections[1].style.display = "none";
+  if (els.resetCalendarConfig) els.resetCalendarConfig.style.display = "none";
 }
 
 function attachEvents() {
@@ -709,12 +727,16 @@ function attachEvents() {
   els.exportButton.addEventListener("click", exportCsv);
   els.calendarConfigButton.addEventListener("click", openCalendarDialog);
   els.closeCalendarDialog.addEventListener("click", () => els.calendarDialog.close());
-  els.calendarOverrideForm.addEventListener("submit", saveCalendarOverride);
-  els.resetCalendarConfig.addEventListener("click", () => {
-    state.calendarConfig = defaultCalendarConfig();
-    saveCalendarConfig();
-    render();
-  });
+  if (els.calendarOverrideForm) {
+    els.calendarOverrideForm.addEventListener("submit", saveCalendarOverride);
+  }
+  if (els.resetCalendarConfig) {
+    els.resetCalendarConfig.addEventListener("click", () => {
+      state.calendarConfig = defaultCalendarConfig();
+      saveCalendarConfig();
+      render();
+    });
+  }
 
   els.rebuildNoteButton.addEventListener("click", () => {
     if (typeof els.assumptionDialog.showModal === "function") {
@@ -760,21 +782,19 @@ function saveCalendarOverride(event) {
 
 function renderCalendarConfig() {
   const workdays = configuredWorkdays();
-  const overrides = state.calendarConfig.overrides;
-  const holidays = Object.entries(overrides)
-    .filter(([, item]) => item.type === "holiday")
-    .sort((a, b) => a[0].localeCompare(b[0]));
-  const workdayOverrides = Object.entries(overrides)
-    .filter(([, item]) => item.type === "workday")
+  const configuredOverrides = Object.entries(state.calendarConfig.overrides)
+    .filter(([, item]) => item.source !== "calendar")
     .sort((a, b) => a[0].localeCompare(b[0]));
 
   els.configuredWorkdays.textContent = workdays.length;
   els.configuredStandardHours.textContent = formatHours(workdays.length * DATA.workdayHours);
-  els.overrideCount.textContent = Object.keys(overrides).length;
+  els.overrideCount.textContent = configuredOverrides.length;
   renderScopeLine();
 
-  els.holidayList.innerHTML = renderOverrideList(holidays, "暂无节假日配置");
-  els.workdayList.innerHTML = renderOverrideList(workdayOverrides, "暂无补班日配置");
+  els.holidayList.innerHTML = renderOverrideList(configuredOverrides, "暂无配置日期");
+  if (els.workdayList) {
+    els.workdayList.innerHTML = "";
+  }
 }
 
 function renderOverrideList(items, emptyText) {
@@ -785,9 +805,8 @@ function renderOverrideList(items, emptyText) {
         <div class="override-row">
           <div>
             <strong>${escapeHtml(date)}</strong>
-            <span>${escapeHtml(item.name || item.type)}</span>
+            <span>${escapeHtml(item.type === "holiday" ? "节假日" : "工作日")}</span>
           </div>
-          <button type="button" data-remove-override="${escapeHtml(date)}">移除</button>
         </div>
       `;
     })
