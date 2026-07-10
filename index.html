@@ -97,13 +97,14 @@
 
           <section class="grid two">
             <article class="panel">
-              <div class="panel-heading">
+              <div class="panel-heading split">
                 <div>
-                  <h2>每日工作时间</h2>
-                  <p>按 Project、CR、Mgmt、Sup 和 Other 汇总，不包含 PTO / Holiday。</p>
+                  <h2>CR 上线趋势</h2>
                 </div>
+                <div class="inline-filter" id="crDateModeFilter" aria-label="CR 时间口径"></div>
+                <div class="inline-filter" id="crMetricFilter" aria-label="CR 上线趋势指标"></div>
               </div>
-              <div class="chart-frame" id="dailyChart"></div>
+              <div class="chart-frame" id="crReleaseChart"></div>
             </article>
 
             <article class="panel">

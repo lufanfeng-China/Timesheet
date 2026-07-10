@@ -22,7 +22,14 @@ OUTPUT_FILE = Path(__file__).resolve().parents[1] / "data" / "timesheet-data.js"
 STANDARD_DAY_HOURS = 8
 STANDARD_WEEK_HOURS = 40
 
-DATE_FORMATS = ("%Y/%m/%d", "%m/%d/%Y", "%Y-%m-%d", "%m-%d-%Y")
+DATE_FORMATS = (
+    "%Y/%m/%d",
+    "%m/%d/%Y",
+    "%Y-%m-%d",
+    "%m-%d-%Y",
+    "%Y-%m-%d %H:%M:%S",
+    "%Y/%m/%d %H:%M:%S",
+)
 TIME_FORMATS = ("%H:%M:%S", "%H:%M", "%I:%M:%S %p", "%I:%M %p")
 
 SHOW_TIME_AS = {
@@ -47,6 +54,19 @@ CATEGORY_ORDER = [
 WORK_CATEGORIES = {"Project", "CR", "Mgmt", "Sup", "Other"}
 TIME_OFF_CATEGORIES = {"PTO", "Holiday"}
 DISTRIBUTION_CATEGORIES = ["Project", "CR", "Mgmt", "Sup"]
+
+CR_OWNER_MEMBER_ALIASES = {
+    "dai": "Dai",
+    "qi dai": "Dai",
+    "dai qi": "Dai",
+    "mia": "Mia",
+    "mia geng": "Mia",
+    "sky": "Sky",
+    "sky lu": "Sky",
+    "sky zhang": "Sky",
+    "sara": "Sara",
+    "sara qin": "Sara",
+}
 
 
 def parse_date(value):
@@ -130,6 +150,12 @@ def is_calendar_file(path):
     )
 
 
+def is_cr_report_file(path):
+    return path.suffix.lower() in {".xlsx", ".xlsm"} and path.stem.lower().startswith(
+        "cr report"
+    )
+
+
 def load_rows(path):
     suffix = path.suffix.lower()
     if suffix == ".csv":
@@ -179,6 +205,37 @@ def load_app_mapping(source_dir):
                 "shortName": short_name,
             }
     return mapping, {"file": mapping_file.name, "rows": len(rows), "mappedCodes": len(mapping)}
+
+
+def parse_number(value):
+    if value is None or value == "":
+        return 0.0
+    if isinstance(value, (int, float)):
+        return round(float(value), 2)
+
+    text = str(value).strip().replace(",", "")
+    if not text:
+        return 0.0
+    try:
+        return round(float(text), 2)
+    except ValueError:
+        return 0.0
+
+
+def normalize_cr_owner(value):
+    text = normalize_subject(value)
+    text = re.sub(r"（.*?）|\(.*?\)", "", text)
+    text = text.replace(",", " ")
+    text = re.sub(r"\s+", " ", text).strip().lower()
+    return text
+
+
+def member_from_cr_owner(value):
+    normalized = normalize_cr_owner(value)
+    for alias, member in CR_OWNER_MEMBER_ALIASES.items():
+        if alias == normalized:
+            return member
+    return ""
 
 
 def subject_prefix(subject):
@@ -409,6 +466,52 @@ def build_events(app_mapping):
     return events, source_files
 
 
+def build_cr_releases(app_mapping):
+    records = []
+    source_file = next(
+        (path for path in sorted(SOURCE_DIR.iterdir()) if is_cr_report_file(path)),
+        None,
+    )
+    if source_file is None:
+        return records, None
+
+    rows = load_rows(source_file)
+    for row in rows:
+        owner = normalize_subject(row.get("CR Owner"))
+        member = member_from_cr_owner(owner)
+        request_date = parse_date(row.get("Request Date"))
+        go_live_date = parse_date(row.get("Go Live Date"))
+        if not member or (not request_date and not go_live_date):
+            continue
+
+        app_code = normalize_tfs_code(f"TFS-{row.get('App Unique Code')}")
+        app_mapping_row = app_mapping.get(app_code, {}) if app_code else {}
+        app_name = normalize_subject(app_mapping_row.get("appName")) or normalize_subject(
+            row.get("Application Name")
+        )
+        total_amount = parse_number(row.get("Total Amount"))
+
+        records.append(
+            {
+                "requestId": normalize_subject(row.get("Request ID")),
+                "member": member,
+                "owner": owner,
+                "applicationName": normalize_subject(row.get("Application Name")),
+                "changeSummary": normalize_subject(row.get("Change Summary")),
+                "status": normalize_subject(row.get("CR Status")),
+                "requestDate": request_date.isoformat() if request_date else "",
+                "goLiveDate": go_live_date.isoformat() if go_live_date else "",
+                "weekStart": week_start(go_live_date).isoformat() if go_live_date else "",
+                "totalAmount": total_amount,
+                "priority": normalize_subject(row.get("Change Priority")),
+                "appCode": app_code,
+                "appName": app_name,
+            }
+        )
+
+    return records, {"file": source_file.name, "rows": len(rows), "matchedRecords": len(records)}
+
+
 def category_hours(events):
     totals = Counter()
     for event in events:
@@ -510,6 +613,7 @@ def build_summary(events, workdays, members):
 def main():
     app_mapping, app_mapping_source = load_app_mapping(SOURCE_DIR)
     events, source_files = build_events(app_mapping)
+    cr_releases, cr_release_source = build_cr_releases(app_mapping)
     members = sorted({event["member"] for event in events})
     months = build_months(events)
     date_range = build_date_range(events)
@@ -522,6 +626,7 @@ def main():
         "sourceDirectory": str(SOURCE_DIR),
         "sourceUrl": SOURCE_URL,
         "appMappingSource": app_mapping_source,
+        "crReleaseSource": cr_release_source,
         "month": default_month,
         "monthLabel": default_month,
         "dateRange": date_range,
@@ -550,6 +655,7 @@ def main():
         ],
         "summary": build_summary(events, workdays, members),
         "weeklySummary": build_weekly_summary(events, members, week_targets),
+        "crReleases": cr_releases,
         "events": events,
     }
 
@@ -564,6 +670,11 @@ def main():
         print(
             f"App mapping: {app_mapping_source['file']} "
             f"({app_mapping_source['mappedCodes']} codes)"
+        )
+    if cr_release_source:
+        print(
+            f"CR releases: {cr_release_source['file']} "
+            f"({cr_release_source['matchedRecords']} matched records)"
         )
 
 

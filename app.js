@@ -39,6 +39,8 @@ const state = {
   rangeMode: "single",
   selectedMonth: DEFAULT_MONTH,
   selectedMonths: new Set(DATA_MONTHS.map((month) => month.value)),
+  selectedCrDateMode: "golive",
+  selectedCrMetric: "count",
   selectedProjectCategories: new Set(["Project"]),
   selectedDetailCategories: new Set(DETAIL_EVENT_CATEGORIES),
   selectedTrendCategory: "Project",
@@ -64,7 +66,9 @@ const els = {
   kpis: document.querySelector("#kpis"),
   noticeBar: document.querySelector("#noticeBar"),
   memberLoad: document.querySelector("#memberLoad"),
-  dailyChart: document.querySelector("#dailyChart"),
+  crDateModeFilter: document.querySelector("#crDateModeFilter"),
+  crMetricFilter: document.querySelector("#crMetricFilter"),
+  crReleaseChart: document.querySelector("#crReleaseChart"),
   categoryBars: document.querySelector("#categoryBars"),
   projectSpend: document.querySelector("#projectSpend"),
   projectCategoryFilter: document.querySelector("#projectCategoryFilter"),
@@ -146,6 +150,14 @@ function formatPercent(value) {
     minimumFractionDigits: 0,
     maximumFractionDigits: 1,
   })}%`;
+}
+
+function formatAmount(value) {
+  const rounded = Math.round((Number(value || 0) + Number.EPSILON) * 10) / 10;
+  return rounded.toLocaleString("zh-CN", {
+    minimumFractionDigits: Number.isInteger(rounded) ? 0 : 1,
+    maximumFractionDigits: 1,
+  });
 }
 
 function escapeHtml(value) {
@@ -428,6 +440,13 @@ function creditEvents() {
   return scopedEvents().filter(isCreditEvent);
 }
 
+function scopedCrReleases() {
+  const dateKey = state.selectedCrDateMode === "request" ? "requestDate" : "goLiveDate";
+  return (DATA.crReleases || [])
+    .filter((record) => state.selectedMember === "All" || record.member === state.selectedMember)
+    .filter((record) => record[dateKey] && dateInSelectedRange(record[dateKey]));
+}
+
 function sumHours(events) {
   return events.reduce((total, event) => total + Number(event.hours || 0), 0);
 }
@@ -537,6 +556,54 @@ function renderDetailCategoryFilter() {
     .join("");
 }
 
+function renderCrDateModeFilter() {
+  if (!els.crDateModeFilter) return;
+  const options = [
+    { value: "request", label: "提交时间", color: "#7b5aa6" },
+    { value: "golive", label: "上线时间", color: "#117b73" },
+  ];
+  els.crDateModeFilter.innerHTML = options
+    .map((option) => {
+      const pressed = state.selectedCrDateMode === option.value;
+      return `
+        <button
+          type="button"
+          class="filter-chip"
+          data-cr-date-mode="${escapeHtml(option.value)}"
+          aria-pressed="${pressed}">
+          <span class="filter-chip-state" aria-hidden="true"></span>
+          <span class="filter-chip-dot" style="background:${option.color}"></span>
+          <span>${escapeHtml(option.label)}</span>
+        </button>
+      `;
+    })
+    .join("");
+}
+
+function renderCrMetricFilter() {
+  if (!els.crMetricFilter) return;
+  const options = [
+    { value: "count", label: "个数", color: "#d71920" },
+    { value: "amount", label: "金额", color: "#4069b1" },
+  ];
+  els.crMetricFilter.innerHTML = options
+    .map((option) => {
+      const pressed = state.selectedCrMetric === option.value;
+      return `
+        <button
+          type="button"
+          class="filter-chip"
+          data-cr-metric="${escapeHtml(option.value)}"
+          aria-pressed="${pressed}">
+          <span class="filter-chip-state" aria-hidden="true"></span>
+          <span class="filter-chip-dot" style="background:${option.color}"></span>
+          <span>${escapeHtml(option.label)}</span>
+        </button>
+      `;
+    })
+    .join("");
+}
+
 function trendItemOptions() {
   const rows = new Map();
   workEvents()
@@ -599,6 +666,8 @@ function initControls() {
     .join("");
 
   renderRangeControls();
+  renderCrDateModeFilter();
+  renderCrMetricFilter();
   renderProjectCategoryFilter();
   renderDetailCategoryFilter();
   renderTrendControls();
@@ -642,6 +711,26 @@ function attachEvents() {
     });
     render();
   });
+
+  if (els.crDateModeFilter) {
+    els.crDateModeFilter.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-cr-date-mode]");
+      if (!button) return;
+      state.selectedCrDateMode = button.dataset.crDateMode;
+      renderCrDateModeFilter();
+      renderCrReleaseChart();
+    });
+  }
+
+  if (els.crMetricFilter) {
+    els.crMetricFilter.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-cr-metric]");
+      if (!button) return;
+      state.selectedCrMetric = button.dataset.crMetric;
+      renderCrMetricFilter();
+      renderCrReleaseChart();
+    });
+  }
 
   els.projectCategoryFilter.addEventListener("click", (event) => {
     const button = event.target.closest("button[data-project-category]");
@@ -1007,79 +1096,78 @@ function renderMemberLoad() {
   els.memberLoadLegend.innerHTML = renderCategoryLegend(["Project", "CR", "Mgmt", "Sup", "Other"]);
 }
 
-function renderDailyChart() {
-  const members = getSelectedMembers();
-  const work = workEvents();
-  const days = dailyChartDays();
-  const width = 720;
-  const height = 260;
-  const margin = { top: 16, right: 18, bottom: 34, left: 42 };
-  const plotWidth = width - margin.left - margin.right;
-  const plotHeight = height - margin.top - margin.bottom;
-  const series = members.map((member) => {
-    const values = days.map((day) => {
-      return sumHours(work.filter((event) => event.member === member && event.date === day));
-    });
-    return { member, values };
-  });
-  const maxValue = Math.max(8, ...series.flatMap((item) => item.values));
-  const yMax = Math.ceil(maxValue / 2) * 2;
-  const xFor = (index) => margin.left + (index / Math.max(1, days.length - 1)) * plotWidth;
-  const yFor = (value) => margin.top + plotHeight - (value / yMax) * plotHeight;
-  const ticks = [0, yMax / 2, yMax];
+function renderCrReleaseChart() {
+  if (!els.crReleaseChart) return;
 
-  if (!work.length || !days.length) {
-    els.dailyChart.innerHTML = `<div class="empty-state">当前筛选下没有工作事件。</div>`;
+  const weeks = [...new Set(rangeDays().map((day) => weekStart(day)))].sort((a, b) => a.localeCompare(b));
+  const releases = scopedCrReleases();
+  const metric = state.selectedCrMetric;
+  const dateMode = state.selectedCrDateMode;
+  const labelStep = Math.max(1, Math.ceil(Math.max(weeks.length, 1) / 8));
+  const totals = new Map();
+
+  releases.forEach((record) => {
+    const increment = metric === "amount" ? Number(record.totalAmount || 0) : 1;
+    const recordWeek = dateMode === "request"
+      ? weekStart(record.requestDate)
+      : record.weekStart;
+    totals.set(recordWeek, (totals.get(recordWeek) || 0) + increment);
+  });
+
+  const rows = weeks.map((week) => ({
+    weekStart: week,
+    value: Math.round(((totals.get(week) || 0) + Number.EPSILON) * 10) / 10,
+  }));
+
+  if (!rows.length || !releases.length) {
+    els.crReleaseChart.innerHTML = `<div class="empty-state">当前筛选范围内没有 CR 上线记录。</div>`;
     return;
   }
+
+  const width = 720;
+  const height = 280;
+  const margin = { top: 18, right: 18, bottom: 42, left: 42 };
+  const plotWidth = width - margin.left - margin.right;
+  const plotHeight = height - margin.top - margin.bottom;
+  const maxValue = Math.max(metric === "amount" ? 1000 : 1, ...rows.map((row) => row.value));
+  const yMax = metric === "amount" ? Math.ceil(maxValue / 1000) * 1000 : Math.max(1, Math.ceil(maxValue));
+  const ticks = [0, yMax / 2, yMax];
+  const barWidth = Math.max(22, Math.min(64, plotWidth / Math.max(rows.length, 1) - 12));
+  const xFor = (index) => margin.left + (index / Math.max(1, rows.length)) * plotWidth;
+  const yFor = (value) => margin.top + plotHeight - (value / yMax) * plotHeight;
+  const metricLabel = metric === "amount" ? "金额" : "个数";
 
   const grid = ticks
     .map((tick) => {
       const y = yFor(tick);
+      const tickLabel = metric === "amount" ? formatAmount(tick) : tick.toLocaleString("zh-CN");
       return `
         <line class="grid-line" x1="${margin.left}" y1="${y}" x2="${width - margin.right}" y2="${y}"></line>
-        <text class="axis-label" x="8" y="${y + 4}">${formatHours(tick)}</text>
+        <text class="axis-label" x="8" y="${y + 4}">${tickLabel}</text>
       `;
     })
     .join("");
 
-  const paths = series
-    .map((item) => {
-      const color = MEMBER_COLORS[item.member] || "#65717d";
-      const points = item.values.map((value, index) => `${xFor(index)},${yFor(value)}`).join(" ");
-      const circles = item.values
-        .map((value, index) => {
-          if (value <= 0) return "";
-          return `<circle class="point" cx="${xFor(index)}" cy="${yFor(value)}" r="4" fill="${color}"></circle>`;
-        })
-        .join("");
-      return `<polyline class="line-path" points="${points}" stroke="${color}"></polyline>${circles}`;
+  const bars = rows
+    .map((row, index) => {
+      const x = xFor(index) + ((plotWidth / Math.max(rows.length, 1)) - barWidth) / 2;
+      const barHeight = row.value > 0 ? Math.max(4, (row.value / yMax) * plotHeight) : 2;
+      const y = margin.top + plotHeight - barHeight;
+      const barLabel = metric === "amount" ? formatAmount(row.value) : row.value.toLocaleString("zh-CN");
+      const axisLabel = row.weekStart.slice(5);
+      return `
+        <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="6" ry="6" fill="${metric === "amount" ? "#4069b1" : "#d71920"}"></rect>
+        ${row.value > 0 ? `<text class="bar-top-label" x="${x + barWidth / 2}" y="${y - 6}">${escapeHtml(barLabel)}</text>` : ""}
+        ${index % labelStep === 0 || index === rows.length - 1 ? `<text class="axis-label" x="${x + barWidth / 2 - 22}" y="${height - 8}">${escapeHtml(axisLabel)}</text>` : ""}
+      `;
     })
     .join("");
 
-  const labelStep = Math.max(1, Math.ceil(days.length / 8));
-  const labels = days
-    .map((day, index) => {
-      if (index % labelStep !== 0 && index !== days.length - 1) return "";
-      const label = day.slice(5).replace("-", "/");
-      return `<text class="axis-label" x="${xFor(index) - 12}" y="${height - 8}">${label}</text>`;
-    })
-    .join("");
-
-  const legend = series
-    .map((item) => {
-      const color = MEMBER_COLORS[item.member] || "#65717d";
-      return `<span class="legend-item"><span class="legend-swatch" style="background:${color}"></span>${escapeHtml(item.member)}</span>`;
-    })
-    .join("");
-
-  els.dailyChart.innerHTML = `
-    <svg class="daily-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="每日工作时间折线图">
+  els.crReleaseChart.innerHTML = `
+    <svg class="daily-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="CR ${escapeHtml(metricLabel)}趋势图">
       ${grid}
-      ${paths}
-      ${labels}
+      ${bars}
     </svg>
-    <div class="legend">${legend}</div>
   `;
 }
 
@@ -1349,7 +1437,7 @@ function render() {
   renderKpis();
   renderNotice();
   renderMemberLoad();
-  renderDailyChart();
+  renderCrReleaseChart();
   renderCategoryBars();
   renderProjectSpend();
   renderWeeklyTrend();
