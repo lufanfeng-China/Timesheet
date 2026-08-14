@@ -1,43 +1,65 @@
 # Timesheet Dashboard
 
-团队日历工时报表。数据范围由导入的 Outlook 日历文件日期自动判断，支持全部数据、单个月、多个月和特定时间区间。
+团队日历工时报表。
 
-默认本地数据目录：
-`C:\Users\Sky.Lu\Thermo Fisher Scientific\IT BA Team - Timesheet`
+当前版本的数据源已经切换为本机 Outlook 日历，直接读取以下 4 个日历并生成前端展示数据：
 
-SharePoint 源文件夹：
-`https://thermofisher.sharepoint.com/:f:/r/sites/ITBATeam/Shared%20Documents/General/Timesheet?csf=1&web=1&e=pvWM7c`
+- `Sky`
+- `Dai, Qi`
+- `Geng, Mia`
+- `Qin, Sara`
+
+当前默认刷新范围：
+
+- `2026-06-01` 到 `2026-07-31`
+
+外部文件仍保留以下用途：
+
+- `App List*.xlsx`：TFS code -> APP name 映射
+- `CR Report*.xlsx`：CR 提交 / 上线趋势
+
+默认外部文件目录：
+
+- `C:\Users\Sky.Lu\Thermo Fisher Scientific\IT BA Team - Timesheet`
 
 ## 打开报表
 
-直接打开 `index.html` 即可查看仪表盘。
+直接打开 `index.html` 即可。
 
 ## 重新生成数据
 
-源文件更新后，在本目录运行：
+在项目目录运行：
 
 ```powershell
-& 'C:\Users\Sky.Lu\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' 'scripts\build_data.py'
+python scripts\build_data.py
 ```
 
-如需临时指定源目录：
+如果要临时修改外部映射文件目录：
 
 ```powershell
 $env:TIMESHEET_SOURCE_DIR='C:\path\to\Timesheet'
-& 'C:\Users\Sky.Lu\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' 'scripts\build_data.py'
+python scripts\build_data.py
 ```
 
-脚本会重新生成 `data\timesheet-data.js`。
+如果要调整 Outlook 刷新时间范围：
 
-## 报表口径
+```powershell
+$env:TIMESHEET_RANGE_START='2026-06-01'
+$env:TIMESHEET_RANGE_END='2026-07-31'
+python scripts\build_data.py
+```
 
-- 日期范围：按 Outlook 导出文件中的 `Start Date` 判断，并输出可选择的月份清单。
-- 标准工时：当前选择范围内的配置工作日 × 8 小时。
-- 日历配置：可手动设置节假日，也可以把双休日设置成补班工作日；配置保存在浏览器本地。
-- 默认隐藏：取消会议、全天事件、提醒类事件。
-- 命名分类：`PROJ/Project`、`CR`、`MGMT`、`SUP`。
-- `Proj-[...]` 会把 `[]` 中的内容作为项目名称。
-- `CR` 会优先提取主题中的 `TFSXXX`；如果 APP 对照表中存在该 code，报表会显示 `App Name` 替代 TFS code。
-- APP 对照表来自源目录中的 `App List*.xlsx`，使用 `App Code` 和 `App Name` 两列。
-- PTO 作为个人休假 credit；配置节假日会从标准工时中扣除。
-- 未匹配四类前缀的工作事件进入 `Other`，用于复核命名规范。
+脚本会重新生成：
+
+- `data\timesheet-data.js`
+
+## 口径说明
+
+- 标准工时 = 选定范围内配置工作日 × 8 小时
+- Holiday 从标准工时中扣除
+- PTO 计入工作负荷，不计入工作时间
+- 工作负荷 = `(工作时间 + PTO) / 标准工时`
+- Project 从 `Proj-[项目名]` 提取项目名
+- CR 从标题中的 `TFSXXX` 提取系统，并优先替换为 APP name
+- Sup / Mgmt 取空格前的标准前缀，如 `SUP-OPS`、`MGMT-TEAM`
+- 取消会议、全天事件、提醒事件默认不计入工时

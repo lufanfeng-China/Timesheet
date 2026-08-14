@@ -2,6 +2,7 @@ import csv
 import json
 import os
 import re
+import subprocess
 from collections import Counter
 from datetime import date, datetime, time, timedelta
 from pathlib import Path
@@ -13,11 +14,18 @@ DEFAULT_SOURCE_DIR = Path(
     r"C:\Users\Sky.Lu\Thermo Fisher Scientific\IT BA Team - Timesheet"
 )
 SOURCE_DIR = Path(os.environ.get("TIMESHEET_SOURCE_DIR", DEFAULT_SOURCE_DIR))
-SOURCE_URL = (
+MAPPING_SOURCE_URL = (
     "https://thermofisher.sharepoint.com/:f:/r/sites/ITBATeam/"
     "Shared%20Documents/General/Timesheet?csf=1&web=1&e=pvWM7c"
 )
 OUTPUT_FILE = Path(__file__).resolve().parents[1] / "data" / "timesheet-data.js"
+OUTLOOK_EXPORT_SCRIPT = Path(__file__).with_name("export_outlook_events.ps1")
+OUTLOOK_RANGE_START = date.fromisoformat(
+    os.environ.get("TIMESHEET_RANGE_START", "2026-06-01")
+)
+OUTLOOK_RANGE_END = date.fromisoformat(
+    os.environ.get("TIMESHEET_RANGE_END", "2026-07-31")
+)
 
 STANDARD_DAY_HOURS = 8
 STANDARD_WEEK_HOURS = 40
@@ -54,6 +62,9 @@ CATEGORY_ORDER = [
 WORK_CATEGORIES = {"Project", "CR", "Mgmt", "Sup", "Other"}
 TIME_OFF_CATEGORIES = {"PTO", "Holiday"}
 DISTRIBUTION_CATEGORIES = ["Project", "CR", "Mgmt", "Sup"]
+MEMBER_ACTIVE_START_DATES = {
+    "Sara": date(2026, 7, 6),
+}
 
 CR_OWNER_MEMBER_ALIASES = {
     "dai": "Dai",
@@ -367,8 +378,32 @@ def build_date_range(events):
     }
 
 
-def build_months(events):
-    month_keys = sorted({event["date"][:7] for event in events})
+def build_configured_date_range(events, start_day, end_day):
+    event_days = sorted(date.fromisoformat(event["date"]) for event in events) if events else []
+    return {
+        "start": start_day.isoformat(),
+        "end": end_day.isoformat(),
+        "monthStart": start_day.replace(day=1).isoformat(),
+        "monthEnd": month_end(end_day).isoformat(),
+        "eventStart": event_days[0].isoformat() if event_days else "",
+        "eventEnd": event_days[-1].isoformat() if event_days else "",
+    }
+
+
+def month_keys_between(start_day, end_day):
+    keys = []
+    cursor = start_day.replace(day=1)
+    final_month = end_day.replace(day=1)
+    while cursor <= final_month:
+        keys.append(cursor.strftime("%Y-%m"))
+        if cursor.month == 12:
+            cursor = date(cursor.year + 1, 1, 1)
+        else:
+            cursor = date(cursor.year, cursor.month + 1, 1)
+    return keys
+
+
+def build_months(month_keys):
     months = []
     for key in month_keys:
         year, month = [int(part) for part in key.split("-")]
@@ -382,6 +417,30 @@ def build_months(events):
             }
         )
     return months
+
+
+def export_outlook_rows(start_day, end_day):
+    command = [
+        "powershell",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        str(OUTLOOK_EXPORT_SCRIPT),
+        start_day.isoformat(),
+        end_day.isoformat(),
+    ]
+    completed = subprocess.run(
+        command,
+        check=True,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+    )
+    payload = json.loads(completed.stdout or "[]")
+    if isinstance(payload, dict):
+        return [payload]
+    return payload
 
 
 def week_start(day):
@@ -403,65 +462,68 @@ def build_events(app_mapping):
     source_files = []
     event_id = 1
 
-    for path in sorted(SOURCE_DIR.iterdir()):
-        if not is_calendar_file(path):
+    rows = export_outlook_rows(OUTLOOK_RANGE_START, OUTLOOK_RANGE_END)
+    source_counter = Counter()
+
+    for row in rows:
+        start = datetime.fromisoformat(str(row.get("start")))
+        end = datetime.fromisoformat(str(row.get("end")))
+        start_date = start.date()
+        member = normalize_subject(row.get("member"))
+        active_start = MEMBER_ACTIVE_START_DATES.get(member)
+        if active_start and start_date < active_start:
             continue
 
-        member = member_from_file(path)
-        rows = load_rows(path)
-        source_files.append({"member": member, "file": path.name, "rows": len(rows)})
+        hours, end = duration_hours(start, end)
+        subject = normalize_subject(row.get("subject"))
+        category = classify_subject(subject)
+        project_name = extract_project_name(subject) if category == "Project" else ""
+        cr_system, cr_code, app_name = (
+            resolve_cr_system(subject, app_mapping) if category == "CR" else ("", "", "")
+        )
+        all_day = bool(row.get("allDay"))
+        canceled = subject.lower().startswith("canceled:")
+        source_file = normalize_subject(row.get("sourceFile")) or "Outlook"
+        source_counter[(member, source_file)] += 1
 
-        for row in rows:
-            start_date = parse_date(row.get("Start Date"))
-            end_date = parse_date(row.get("End Date"))
-            if not start_date or not end_date:
-                continue
+        events.append(
+            {
+                "id": event_id,
+                "member": member,
+                "sourceFile": source_file,
+                "date": start_date.isoformat(),
+                "weekStart": week_start(start_date).isoformat(),
+                "weekday": start.strftime("%a"),
+                "start": start.isoformat(timespec="minutes"),
+                "end": end.isoformat(timespec="minutes"),
+                "startTime": start.strftime("%H:%M"),
+                "endTime": end.strftime("%H:%M"),
+                "hours": hours,
+                "subject": subject,
+                "prefix": subject_prefix(subject),
+                "category": category,
+                "projectName": project_name,
+                "crCode": cr_code,
+                "appName": app_name,
+                "crSystem": cr_system,
+                "workItemName": work_item_name(subject, category, app_mapping),
+                "showTimeAs": show_time_label(row.get("busyStatus")),
+                "organizer": normalize_subject(row.get("organizer")),
+                "location": normalize_subject(row.get("location")),
+                "allDay": all_day,
+                "canceled": canceled,
+                "isReminder": category == "Reminder",
+                "isWork": category in WORK_CATEGORIES,
+                "isTimeOff": category in TIME_OFF_CATEGORIES,
+                "isDistributionWork": category in DISTRIBUTION_CATEGORIES,
+            }
+        )
+        event_id += 1
 
-            start = datetime.combine(start_date, parse_time(row.get("Start Time")))
-            end = datetime.combine(end_date, parse_time(row.get("End Time")))
-            hours, end = duration_hours(start, end)
-            subject = normalize_subject(row.get("Subject"))
-            category = classify_subject(subject)
-            project_name = extract_project_name(subject) if category == "Project" else ""
-            cr_system, cr_code, app_name = (
-                resolve_cr_system(subject, app_mapping) if category == "CR" else ("", "", "")
-            )
-            all_day = bool_value(row.get("All day event"))
-            canceled = subject.lower().startswith("canceled:")
-
-            events.append(
-                {
-                    "id": event_id,
-                    "member": member,
-                    "sourceFile": path.name,
-                    "date": start_date.isoformat(),
-                    "weekStart": week_start(start_date).isoformat(),
-                    "weekday": start.strftime("%a"),
-                    "start": start.isoformat(timespec="minutes"),
-                    "end": end.isoformat(timespec="minutes"),
-                    "startTime": start.strftime("%H:%M"),
-                    "endTime": end.strftime("%H:%M"),
-                    "hours": hours,
-                    "subject": subject,
-                    "prefix": subject_prefix(subject),
-                    "category": category,
-                    "projectName": project_name,
-                    "crCode": cr_code,
-                    "appName": app_name,
-                    "crSystem": cr_system,
-                    "workItemName": work_item_name(subject, category, app_mapping),
-                    "showTimeAs": show_time_label(row.get("Show time as")),
-                    "organizer": normalize_subject(row.get("Meeting Organizer")),
-                    "location": normalize_subject(row.get("Location")),
-                    "allDay": all_day,
-                    "canceled": canceled,
-                    "isReminder": category == "Reminder",
-                    "isWork": category in WORK_CATEGORIES,
-                    "isTimeOff": category in TIME_OFF_CATEGORIES,
-                    "isDistributionWork": category in DISTRIBUTION_CATEGORIES,
-                }
-            )
-            event_id += 1
+    source_files = [
+        {"member": member, "file": source_file, "rows": rows}
+        for (member, source_file), rows in sorted(source_counter.items())
+    ]
 
     return events, source_files
 
@@ -615,16 +677,20 @@ def main():
     events, source_files = build_events(app_mapping)
     cr_releases, cr_release_source = build_cr_releases(app_mapping)
     members = sorted({event["member"] for event in events})
-    months = build_months(events)
-    date_range = build_date_range(events)
+    months = build_months(month_keys_between(OUTLOOK_RANGE_START, OUTLOOK_RANGE_END))
+    date_range = build_configured_date_range(
+        events,
+        OUTLOOK_RANGE_START,
+        OUTLOOK_RANGE_END,
+    )
     workdays = default_workdays_between(date_range["start"], date_range["end"])
     week_targets = build_week_targets(workdays)
     default_month = months[0]["value"] if months else date_range["start"][:7]
 
     payload = {
         "generatedAt": datetime.now().isoformat(timespec="seconds"),
-        "sourceDirectory": str(SOURCE_DIR),
-        "sourceUrl": SOURCE_URL,
+        "sourceDirectory": "Outlook shared calendars (Sky / Dai / Mia / Sara)",
+        "sourceUrl": "",
         "appMappingSource": app_mapping_source,
         "crReleaseSource": cr_release_source,
         "month": default_month,
@@ -642,6 +708,8 @@ def main():
         "members": members,
         "sourceFiles": source_files,
         "assumptions": [
+            f"日历事件直接从 Outlook 共享日历读取，当前刷新范围为 {OUTLOOK_RANGE_START.isoformat()} 至 {OUTLOOK_RANGE_END.isoformat()}。",
+            "Sara 的有效工时起始日期为 2026-07-06，2026-07-06 之前的事件不计入报表。",
             "本报表按 Outlook 日历标题命名规范识别工时类别，主类仅包括 Project、CR、Sup、Mgmt，未匹配的工作事件归入 Other 供复核。",
             "Project 类按 Proj-[项目名] 识别，方括号中的内容作为项目 / 系统名称。",
             "CR 类按标题中的 TFS code 识别；若 App List 中存在映射，则报表显示 APP Name 替代 TFS code。",
@@ -666,6 +734,10 @@ def main():
     OUTPUT_FILE.write_text(content, encoding="utf-8")
     print(f"Wrote {OUTPUT_FILE}")
     print(f"Events: {len(events)}")
+    print(
+        "Outlook calendars: "
+        f"Sky / Dai / Mia / Sara, range {OUTLOOK_RANGE_START.isoformat()} to {OUTLOOK_RANGE_END.isoformat()}"
+    )
     if app_mapping_source:
         print(
             f"App mapping: {app_mapping_source['file']} "

@@ -18,6 +18,7 @@ const CATEGORY_META = {
 const MEMBER_COLORS = {
   Dai: "#117b73",
   Mia: "#4069b1",
+  Sara: "#ba7a15",
   Sky: "#d71920",
 };
 
@@ -33,6 +34,9 @@ const DEFAULT_MONTH = DATA.month || DATA_MONTHS[0]?.value || DATA_DATE_RANGE.sta
 const PROJECT_SPEND_CATEGORIES = ["Project", "Sup", "CR", "Mgmt", "Other"];
 const DETAIL_EVENT_CATEGORIES = ["Project", "Sup", "CR", "Mgmt", "Other", "PTO", "Holiday"];
 const TREND_CATEGORIES = ["Project", "CR", "Sup", "Mgmt"];
+const MEMBER_ACTIVE_START_DATES = {
+  Sara: "2026-07-06",
+};
 
 const state = {
   selectedMember: "All",
@@ -312,6 +316,15 @@ function configuredWorkdays() {
   return rangeDays().filter(isConfiguredWorkday);
 }
 
+function memberActiveStartDate(member) {
+  return MEMBER_ACTIVE_START_DATES[member] || "";
+}
+
+function configuredWorkdaysForMember(member) {
+  const activeStart = memberActiveStartDate(member);
+  return configuredWorkdays().filter((day) => !activeStart || day >= activeStart);
+}
+
 function dailyChartDays() {
   const days = new Set(configuredWorkdays());
   workEvents().forEach((event) => {
@@ -349,6 +362,17 @@ function weekTargets() {
 
 function standardHoursPerMember() {
   return configuredWorkdays().length * DATA.workdayHours;
+}
+
+function effectiveStandardHoursForMember(member) {
+  return configuredWorkdaysForMember(member).length * DATA.workdayHours;
+}
+
+function selectedStandardHours() {
+  return getSelectedMembers().reduce(
+    (total, member) => total + effectiveStandardHoursForMember(member),
+    0
+  );
 }
 
 function isInMemberScope(event) {
@@ -914,11 +938,15 @@ function renderKpis() {
   const selectedMembers = getSelectedMembers();
   const work = workEvents();
   const pto = ptoEvents();
-  const standard = standardHoursPerMember() * selectedMembers.length;
+  const standard = selectedStandardHours();
   const workHours = sumHours(work);
   const ptoHours = sumHours(pto);
   const creditHours = sumHours(creditEvents());
   const workload = standard ? creditHours / standard : 0;
+  const memberStandardDays = selectedMembers.reduce(
+    (total, member) => total + configuredWorkdaysForMember(member).length,
+    0
+  );
 
   const kpis = [
     {
@@ -934,7 +962,7 @@ function renderKpis() {
     {
       label: "标准工时",
       value: formatHours(standard),
-      delta: `${selectedMembers.length} 人 × ${configuredWorkdays().length} 工作日 × ${DATA.workdayHours}h`,
+      delta: `${selectedMembers.length} 人合计 ${memberStandardDays} 个有效工作日 × ${DATA.workdayHours}h`,
     },
     {
       label: "工作负荷",
@@ -1047,7 +1075,7 @@ function memberMetrics(member) {
     memberWork,
     ["Project", "CR", "Mgmt", "Sup", "Other"]
   );
-  const standard = standardHoursPerMember();
+  const standard = effectiveStandardHoursForMember(member);
   const workHours = sumHours(memberWork);
   const ptoHours = sumHours(memberPto);
   const holidayHours = sumHours(memberHoliday);
