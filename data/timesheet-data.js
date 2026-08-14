@@ -1,5 +1,5 @@
 window.TIMESHEET_DATA = {
-  "generatedAt": "2026-08-14T15:51:36",
+  "generatedAt": "2026-08-14T16:03:28",
   "sourceDirectory": "Outlook shared calendars (Sky / Dai / Mia / Sara)",
   "sourceUrl": "",
   "appMappingSource": {
@@ -139,12 +139,12 @@ window.TIMESHEET_DATA = {
     {
       "member": "Mia",
       "file": "Outlook / Geng, Mia",
-      "rows": 356
+      "rows": 352
     },
     {
       "member": "Sara",
       "file": "Outlook / Qin, Sara",
-      "rows": 160
+      "rows": 159
     },
     {
       "member": "Sky",
@@ -194,19 +194,19 @@ window.TIMESHEET_DATA = {
       }
     },
     "Mia": {
-      "rawEvents": 356,
-      "trackedEvents": 354,
-      "workEvents": 351,
+      "rawEvents": 352,
+      "trackedEvents": 350,
+      "workEvents": 347,
       "timeOffEvents": 3,
       "standardHours": 360,
-      "workHours": 317.51,
+      "workHours": 315.25,
       "distributionWorkHours": 315.25,
-      "otherWorkHours": 2.26,
+      "otherWorkHours": 0,
       "timeOffHours": 22.0,
       "availableWorkHours": 338.0,
-      "creditHours": 339.51,
-      "varianceHours": -20.49,
-      "utilization": 0.9394,
+      "creditHours": 337.25,
+      "varianceHours": -22.75,
+      "utilization": 0.9327,
       "canceledEvents": 0,
       "allDayEvents": 0,
       "reminderEvents": 2,
@@ -215,33 +215,31 @@ window.TIMESHEET_DATA = {
         "CR": 94.25,
         "Mgmt": 58.5,
         "Sup": 78.5,
-        "Other": 2.26,
         "PTO": 22.0
       }
     },
     "Sara": {
-      "rawEvents": 160,
-      "trackedEvents": 160,
-      "workEvents": 159,
+      "rawEvents": 159,
+      "trackedEvents": 159,
+      "workEvents": 158,
       "timeOffEvents": 1,
       "standardHours": 360,
-      "workHours": 111.42,
-      "distributionWorkHours": 108.5,
-      "otherWorkHours": 2.92,
+      "workHours": 111.0,
+      "distributionWorkHours": 111.0,
+      "otherWorkHours": 0,
       "timeOffHours": 8.5,
       "availableWorkHours": 351.5,
-      "creditHours": 119.92,
-      "varianceHours": -240.08,
-      "utilization": 0.317,
+      "creditHours": 119.5,
+      "varianceHours": -240.5,
+      "utilization": 0.3158,
       "canceledEvents": 0,
       "allDayEvents": 0,
       "reminderEvents": 0,
       "categoryHours": {
         "Project": 50.0,
-        "CR": 7.0,
-        "Mgmt": 18.5,
+        "CR": 8.5,
+        "Mgmt": 19.5,
         "Sup": 33.0,
-        "Other": 2.92,
         "PTO": 8.5
       }
     },
@@ -493,16 +491,15 @@ window.TIMESHEET_DATA = {
       "weekStart": "2026-06-29",
       "weekEnd": "2026-07-05",
       "targetHours": 40,
-      "workHours": 28.92,
+      "workHours": 27.5,
       "timeOffHours": 9.0,
-      "creditHours": 37.92,
-      "varianceHours": -2.08,
+      "creditHours": 36.5,
+      "varianceHours": -3.5,
       "categoryHours": {
         "Project": 6.0,
         "CR": 7.5,
         "Mgmt": 6.5,
         "Sup": 7.5,
-        "Other": 1.42,
         "PTO": 9.0
       }
     },
@@ -527,16 +524,15 @@ window.TIMESHEET_DATA = {
       "weekStart": "2026-07-13",
       "weekEnd": "2026-07-19",
       "targetHours": 40,
-      "workHours": 31.42,
+      "workHours": 31.0,
       "timeOffHours": 0,
-      "creditHours": 31.42,
-      "varianceHours": -8.58,
+      "creditHours": 31.0,
+      "varianceHours": -9.0,
       "categoryHours": {
         "Project": 9.0,
         "CR": 5.5,
         "Mgmt": 10.0,
-        "Sup": 6.5,
-        "Other": 0.42
+        "Sup": 6.5
       }
     },
     {
@@ -560,16 +556,15 @@ window.TIMESHEET_DATA = {
       "weekStart": "2026-07-27",
       "weekEnd": "2026-08-02",
       "targetHours": 40,
-      "workHours": 32.5,
+      "workHours": 32.08,
       "timeOffHours": 0,
-      "creditHours": 32.5,
-      "varianceHours": -7.5,
+      "creditHours": 32.08,
+      "varianceHours": -7.92,
       "categoryHours": {
         "Project": 15.25,
         "CR": 2.75,
         "Mgmt": 6.58,
-        "Sup": 7.5,
-        "Other": 0.42
+        "Sup": 7.5
       }
     },
     {
@@ -638,10 +633,9 @@ window.TIMESHEET_DATA = {
       "varianceHours": -9.75,
       "categoryHours": {
         "Project": 14.5,
-        "CR": 1.5,
+        "CR": 2.0,
         "Mgmt": 9.5,
-        "Sup": 4.25,
-        "Other": 0.5
+        "Sup": 4.25
       }
     },
     {
@@ -649,16 +643,15 @@ window.TIMESHEET_DATA = {
       "weekStart": "2026-07-13",
       "weekEnd": "2026-07-19",
       "targetHours": 40,
-      "workHours": 25.67,
+      "workHours": 25.25,
       "timeOffHours": 0,
-      "creditHours": 25.67,
-      "varianceHours": -14.33,
+      "creditHours": 25.25,
+      "varianceHours": -14.75,
       "categoryHours": {
         "Project": 9.0,
-        "CR": 2.5,
-        "Mgmt": 3.0,
-        "Sup": 8.75,
-        "Other": 2.42
+        "CR": 3.5,
+        "Mgmt": 4.0,
+        "Sup": 8.75
       }
     },
     {
@@ -31166,36 +31159,6 @@ window.TIMESHEET_DATA = {
       "id": 832,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
-      "date": "2026-07-02",
-      "weekStart": "2026-06-29",
-      "weekday": "Thu",
-      "start": "2026-07-02T23:00",
-      "end": "2026-07-03T00:00",
-      "startTime": "23:00",
-      "endTime": "00:00",
-      "hours": 1.0,
-      "subject": "Application Certification Office Hours - Option 1",
-      "prefix": "APPLICATION",
-      "category": "Other",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
-      "showTimeAs": "Tentative",
-      "organizer": "Mordach, Alex",
-      "location": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_YjYxZGVmZmMtZWVhNS00NDg0LTg1NjQtYmJmZjhlYjFjYjUz%40thread.v2/0?context=%7b%22Tid%22%3a%22b67d722d-aa8a-4777-a169-ebeb7a6a3b67%22%2c%22Oid%22%3a%2256a023f0-02d2-4deb-b824-c34d168c585a%22%7d",
-      "allDay": false,
-      "canceled": false,
-      "isReminder": false,
-      "isWork": true,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 833,
-      "member": "Mia",
-      "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-03",
       "weekStart": "2026-06-29",
       "weekday": "Fri",
@@ -31223,7 +31186,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 834,
+      "id": 833,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-03",
@@ -31253,37 +31216,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 835,
-      "member": "Mia",
-      "sourceFile": "Outlook / Geng, Mia",
-      "date": "2026-07-03",
-      "weekStart": "2026-06-29",
-      "weekday": "Fri",
-      "start": "2026-07-03T11:30",
-      "end": "2026-07-03T11:55",
-      "startTime": "11:30",
-      "endTime": "11:55",
-      "hours": 0.42,
-      "subject": "DSC Release Review",
-      "prefix": "DSC",
-      "category": "Other",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
-      "showTimeAs": "Tentative",
-      "organizer": "Fu, Cathy",
-      "location": "Microsoft Teams Meeting; CNSH-JQ-BLD11-3F-Meeting Room310 (12people/TV)",
-      "allDay": false,
-      "canceled": false,
-      "isReminder": false,
-      "isWork": true,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 836,
+      "id": 834,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-03",
@@ -31313,7 +31246,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 837,
+      "id": 835,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-03",
@@ -31343,7 +31276,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 838,
+      "id": 836,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-03",
@@ -31373,7 +31306,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 839,
+      "id": 837,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-03",
@@ -31403,7 +31336,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 840,
+      "id": 838,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-06",
@@ -31433,7 +31366,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": false
     },
     {
-      "id": 841,
+      "id": 839,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-06",
@@ -31463,7 +31396,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 842,
+      "id": 840,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-06",
@@ -31493,7 +31426,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 843,
+      "id": 841,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-06",
@@ -31523,7 +31456,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 844,
+      "id": 842,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-06",
@@ -31553,7 +31486,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 845,
+      "id": 843,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-06",
@@ -31583,7 +31516,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 846,
+      "id": 844,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-06",
@@ -31613,7 +31546,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 847,
+      "id": 845,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-06",
@@ -31643,7 +31576,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 848,
+      "id": 846,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-06",
@@ -31673,7 +31606,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 849,
+      "id": 847,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-06",
@@ -31703,7 +31636,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 850,
+      "id": 848,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-07",
@@ -31733,7 +31666,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 851,
+      "id": 849,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-07",
@@ -31763,7 +31696,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 852,
+      "id": 850,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-07",
@@ -31793,7 +31726,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 853,
+      "id": 851,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-07",
@@ -31823,7 +31756,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 854,
+      "id": 852,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-07",
@@ -31853,7 +31786,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 855,
+      "id": 853,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-07",
@@ -31883,7 +31816,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 856,
+      "id": 854,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-07",
@@ -31913,7 +31846,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 857,
+      "id": 855,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-07",
@@ -31943,7 +31876,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 858,
+      "id": 856,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-07",
@@ -31973,7 +31906,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 859,
+      "id": 857,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-08",
@@ -32003,7 +31936,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 860,
+      "id": 858,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-08",
@@ -32033,7 +31966,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 861,
+      "id": 859,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-08",
@@ -32063,7 +31996,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 862,
+      "id": 860,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-08",
@@ -32093,7 +32026,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 863,
+      "id": 861,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-08",
@@ -32123,7 +32056,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 864,
+      "id": 862,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-08",
@@ -32153,7 +32086,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 865,
+      "id": 863,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-08",
@@ -32183,7 +32116,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 866,
+      "id": 864,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-08",
@@ -32213,7 +32146,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 867,
+      "id": 865,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-08",
@@ -32243,7 +32176,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 868,
+      "id": 866,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-08",
@@ -32273,7 +32206,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 869,
+      "id": 867,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-08",
@@ -32303,7 +32236,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 870,
+      "id": 868,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-09",
@@ -32333,7 +32266,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 871,
+      "id": 869,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-09",
@@ -32363,7 +32296,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 872,
+      "id": 870,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-09",
@@ -32393,7 +32326,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 873,
+      "id": 871,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-09",
@@ -32423,7 +32356,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 874,
+      "id": 872,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-09",
@@ -32453,7 +32386,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 875,
+      "id": 873,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-09",
@@ -32483,7 +32416,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 876,
+      "id": 874,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-09",
@@ -32513,7 +32446,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 877,
+      "id": 875,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-09",
@@ -32543,7 +32476,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 878,
+      "id": 876,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-10",
@@ -32573,7 +32506,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 879,
+      "id": 877,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-10",
@@ -32603,7 +32536,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 880,
+      "id": 878,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-10",
@@ -32633,7 +32566,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 881,
+      "id": 879,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-10",
@@ -32663,7 +32596,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 882,
+      "id": 880,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-10",
@@ -32693,7 +32626,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 883,
+      "id": 881,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-10",
@@ -32723,7 +32656,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 884,
+      "id": 882,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-10",
@@ -32753,7 +32686,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 885,
+      "id": 883,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-10",
@@ -32783,7 +32716,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 886,
+      "id": 884,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-10",
@@ -32813,7 +32746,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 887,
+      "id": 885,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-13",
@@ -32843,7 +32776,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 888,
+      "id": 886,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-13",
@@ -32873,7 +32806,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 889,
+      "id": 887,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-13",
@@ -32903,7 +32836,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 890,
+      "id": 888,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-13",
@@ -32933,7 +32866,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 891,
+      "id": 889,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-13",
@@ -32963,7 +32896,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 892,
+      "id": 890,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-13",
@@ -32993,7 +32926,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 893,
+      "id": 891,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-13",
@@ -33023,7 +32956,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 894,
+      "id": 892,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-13",
@@ -33053,7 +32986,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 895,
+      "id": 893,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-13",
@@ -33083,7 +33016,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 896,
+      "id": 894,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-14",
@@ -33113,7 +33046,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 897,
+      "id": 895,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-14",
@@ -33143,7 +33076,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 898,
+      "id": 896,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-14",
@@ -33173,7 +33106,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 899,
+      "id": 897,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-14",
@@ -33203,7 +33136,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 900,
+      "id": 898,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-14",
@@ -33233,7 +33166,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 901,
+      "id": 899,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-14",
@@ -33263,7 +33196,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 902,
+      "id": 900,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-15",
@@ -33293,7 +33226,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 903,
+      "id": 901,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-15",
@@ -33323,7 +33256,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 904,
+      "id": 902,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-15",
@@ -33353,7 +33286,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 905,
+      "id": 903,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-15",
@@ -33383,7 +33316,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 906,
+      "id": 904,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-15",
@@ -33413,7 +33346,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 907,
+      "id": 905,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-15",
@@ -33443,7 +33376,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 908,
+      "id": 906,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-15",
@@ -33473,7 +33406,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 909,
+      "id": 907,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-15",
@@ -33503,7 +33436,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 910,
+      "id": 908,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-16",
@@ -33533,7 +33466,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 911,
+      "id": 909,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-16",
@@ -33563,7 +33496,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 912,
+      "id": 910,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-16",
@@ -33593,7 +33526,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 913,
+      "id": 911,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-16",
@@ -33623,7 +33556,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 914,
+      "id": 912,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-16",
@@ -33653,7 +33586,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 915,
+      "id": 913,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-16",
@@ -33683,7 +33616,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 916,
+      "id": 914,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-16",
@@ -33713,7 +33646,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 917,
+      "id": 915,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-16",
@@ -33743,7 +33676,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 918,
+      "id": 916,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-16",
@@ -33773,7 +33706,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 919,
+      "id": 917,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-17",
@@ -33803,37 +33736,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 920,
-      "member": "Mia",
-      "sourceFile": "Outlook / Geng, Mia",
-      "date": "2026-07-17",
-      "weekStart": "2026-07-13",
-      "weekday": "Fri",
-      "start": "2026-07-17T11:00",
-      "end": "2026-07-17T11:25",
-      "startTime": "11:00",
-      "endTime": "11:25",
-      "hours": 0.42,
-      "subject": "DSC Release Review",
-      "prefix": "DSC",
-      "category": "Other",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
-      "showTimeAs": "Tentative",
-      "organizer": "Fu, Cathy",
-      "location": "Microsoft Teams Meeting; CNSH-JQ-BLD6-1F-Meeting Room 112 (3 people/telephone/)",
-      "allDay": false,
-      "canceled": false,
-      "isReminder": false,
-      "isWork": true,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 921,
+      "id": 918,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-17",
@@ -33863,7 +33766,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 922,
+      "id": 919,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-17",
@@ -33893,7 +33796,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 923,
+      "id": 920,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-17",
@@ -33923,7 +33826,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 924,
+      "id": 921,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-17",
@@ -33953,7 +33856,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 925,
+      "id": 922,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-17",
@@ -33983,7 +33886,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 926,
+      "id": 923,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-20",
@@ -34013,7 +33916,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 927,
+      "id": 924,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-20",
@@ -34043,7 +33946,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 928,
+      "id": 925,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-20",
@@ -34073,7 +33976,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 929,
+      "id": 926,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-20",
@@ -34103,7 +34006,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 930,
+      "id": 927,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-20",
@@ -34133,7 +34036,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 931,
+      "id": 928,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-20",
@@ -34163,7 +34066,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 932,
+      "id": 929,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-20",
@@ -34193,7 +34096,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 933,
+      "id": 930,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-20",
@@ -34223,7 +34126,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 934,
+      "id": 931,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-20",
@@ -34253,7 +34156,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 935,
+      "id": 932,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-20",
@@ -34283,7 +34186,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 936,
+      "id": 933,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-21",
@@ -34313,7 +34216,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 937,
+      "id": 934,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-21",
@@ -34343,7 +34246,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 938,
+      "id": 935,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-21",
@@ -34373,7 +34276,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 939,
+      "id": 936,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-21",
@@ -34403,7 +34306,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 940,
+      "id": 937,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-21",
@@ -34433,7 +34336,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 941,
+      "id": 938,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-21",
@@ -34463,7 +34366,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 942,
+      "id": 939,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-21",
@@ -34493,7 +34396,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 943,
+      "id": 940,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-21",
@@ -34523,7 +34426,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 944,
+      "id": 941,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-21",
@@ -34553,7 +34456,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 945,
+      "id": 942,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-22",
@@ -34583,7 +34486,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 946,
+      "id": 943,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-22",
@@ -34613,7 +34516,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 947,
+      "id": 944,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-22",
@@ -34643,7 +34546,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 948,
+      "id": 945,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-22",
@@ -34673,7 +34576,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 949,
+      "id": 946,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-22",
@@ -34703,7 +34606,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 950,
+      "id": 947,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-22",
@@ -34733,7 +34636,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 951,
+      "id": 948,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-22",
@@ -34763,7 +34666,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 952,
+      "id": 949,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-22",
@@ -34793,7 +34696,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 953,
+      "id": 950,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-22",
@@ -34823,7 +34726,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 954,
+      "id": 951,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-22",
@@ -34853,7 +34756,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 955,
+      "id": 952,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-22",
@@ -34883,7 +34786,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 956,
+      "id": 953,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-22",
@@ -34913,7 +34816,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 957,
+      "id": 954,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-23",
@@ -34943,7 +34846,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 958,
+      "id": 955,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-23",
@@ -34973,7 +34876,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 959,
+      "id": 956,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-23",
@@ -35003,7 +34906,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 960,
+      "id": 957,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-23",
@@ -35033,7 +34936,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 961,
+      "id": 958,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-23",
@@ -35063,7 +34966,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 962,
+      "id": 959,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-23",
@@ -35093,7 +34996,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 963,
+      "id": 960,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-23",
@@ -35123,7 +35026,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 964,
+      "id": 961,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-23",
@@ -35153,7 +35056,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 965,
+      "id": 962,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-23",
@@ -35183,7 +35086,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 966,
+      "id": 963,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-24",
@@ -35213,7 +35116,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 967,
+      "id": 964,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-24",
@@ -35243,7 +35146,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 968,
+      "id": 965,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-24",
@@ -35273,7 +35176,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 969,
+      "id": 966,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-24",
@@ -35303,7 +35206,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 970,
+      "id": 967,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-24",
@@ -35333,7 +35236,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 971,
+      "id": 968,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-24",
@@ -35363,7 +35266,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 972,
+      "id": 969,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-24",
@@ -35393,7 +35296,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 973,
+      "id": 970,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-27",
@@ -35423,7 +35326,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 974,
+      "id": 971,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-27",
@@ -35453,7 +35356,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 975,
+      "id": 972,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-27",
@@ -35483,7 +35386,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 976,
+      "id": 973,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-27",
@@ -35513,7 +35416,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 977,
+      "id": 974,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-27",
@@ -35543,7 +35446,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 978,
+      "id": 975,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-27",
@@ -35573,7 +35476,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 979,
+      "id": 976,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-27",
@@ -35603,7 +35506,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 980,
+      "id": 977,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-27",
@@ -35633,7 +35536,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 981,
+      "id": 978,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-28",
@@ -35663,7 +35566,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 982,
+      "id": 979,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-28",
@@ -35693,7 +35596,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 983,
+      "id": 980,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-28",
@@ -35723,7 +35626,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 984,
+      "id": 981,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-28",
@@ -35753,7 +35656,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 985,
+      "id": 982,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-28",
@@ -35783,7 +35686,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 986,
+      "id": 983,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-28",
@@ -35813,7 +35716,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 987,
+      "id": 984,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-28",
@@ -35843,7 +35746,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 988,
+      "id": 985,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-28",
@@ -35873,7 +35776,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 989,
+      "id": 986,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-29",
@@ -35903,7 +35806,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 990,
+      "id": 987,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-29",
@@ -35933,7 +35836,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 991,
+      "id": 988,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-29",
@@ -35963,7 +35866,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 992,
+      "id": 989,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-29",
@@ -35993,7 +35896,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 993,
+      "id": 990,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-29",
@@ -36023,7 +35926,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 994,
+      "id": 991,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-29",
@@ -36053,7 +35956,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 995,
+      "id": 992,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-29",
@@ -36083,7 +35986,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 996,
+      "id": 993,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-29",
@@ -36113,7 +36016,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 997,
+      "id": 994,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-29",
@@ -36143,7 +36046,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 998,
+      "id": 995,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-30",
@@ -36173,7 +36076,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 999,
+      "id": 996,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-30",
@@ -36203,7 +36106,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1000,
+      "id": 997,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-30",
@@ -36233,7 +36136,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1001,
+      "id": 998,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-30",
@@ -36263,7 +36166,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1002,
+      "id": 999,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-30",
@@ -36293,7 +36196,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1003,
+      "id": 1000,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-30",
@@ -36323,7 +36226,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1004,
+      "id": 1001,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-30",
@@ -36353,7 +36256,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1005,
+      "id": 1002,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-30",
@@ -36383,7 +36286,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1006,
+      "id": 1003,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-30",
@@ -36413,7 +36316,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1007,
+      "id": 1004,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-31",
@@ -36443,37 +36346,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1008,
-      "member": "Mia",
-      "sourceFile": "Outlook / Geng, Mia",
-      "date": "2026-07-31",
-      "weekStart": "2026-07-27",
-      "weekday": "Fri",
-      "start": "2026-07-31T11:30",
-      "end": "2026-07-31T11:55",
-      "startTime": "11:30",
-      "endTime": "11:55",
-      "hours": 0.42,
-      "subject": "DSC Release Review",
-      "prefix": "DSC",
-      "category": "Other",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
-      "showTimeAs": "Tentative",
-      "organizer": "Fu, Cathy",
-      "location": "Microsoft Teams Meeting; CNSH-JQ-BLD11-3F-Meeting Room309 (22people/Polycom/TV)",
-      "allDay": false,
-      "canceled": false,
-      "isReminder": false,
-      "isWork": true,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 1009,
+      "id": 1005,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-31",
@@ -36503,7 +36376,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1010,
+      "id": 1006,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-31",
@@ -36533,7 +36406,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1011,
+      "id": 1007,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-31",
@@ -36563,7 +36436,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1012,
+      "id": 1008,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-31",
@@ -36593,7 +36466,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1013,
+      "id": 1009,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-31",
@@ -36623,7 +36496,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1014,
+      "id": 1010,
       "member": "Mia",
       "sourceFile": "Outlook / Geng, Mia",
       "date": "2026-07-31",
@@ -36653,7 +36526,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1015,
+      "id": 1011,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-06",
@@ -36683,7 +36556,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1016,
+      "id": 1012,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-06",
@@ -36713,7 +36586,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1017,
+      "id": 1013,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-06",
@@ -36743,7 +36616,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1018,
+      "id": 1014,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-06",
@@ -36773,7 +36646,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1019,
+      "id": 1015,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-06",
@@ -36784,14 +36657,14 @@ window.TIMESHEET_DATA = {
       "startTime": "14:30",
       "endTime": "15:00",
       "hours": 0.5,
-      "subject": "电子合同需求变化确认",
-      "prefix": "",
-      "category": "Other",
+      "subject": "CR-CRM 电子合同需求变化确认",
+      "prefix": "CR",
+      "category": "CR",
       "projectName": "",
       "crCode": "",
       "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
+      "crSystem": "CRM 电子合同需求变化确认",
+      "workItemName": "CRM 电子合同需求变化确认",
       "showTimeAs": "Busy",
       "organizer": "Lv, Michael",
       "location": "Microsoft Teams 会议; CNSH-JQ-BLD11-3F-Meeting Room304 (8people/TV)",
@@ -36800,10 +36673,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1020,
+      "id": 1016,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-06",
@@ -36833,7 +36706,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1021,
+      "id": 1017,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -36863,7 +36736,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1022,
+      "id": 1018,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -36893,7 +36766,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1023,
+      "id": 1019,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -36923,7 +36796,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1024,
+      "id": 1020,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -36953,7 +36826,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1025,
+      "id": 1021,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -36983,7 +36856,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1026,
+      "id": 1022,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -37013,7 +36886,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1027,
+      "id": 1023,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -37043,7 +36916,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1028,
+      "id": 1024,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -37073,7 +36946,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1029,
+      "id": 1025,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -37103,7 +36976,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1030,
+      "id": 1026,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -37133,7 +37006,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1031,
+      "id": 1027,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -37163,7 +37036,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1032,
+      "id": 1028,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37193,7 +37066,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1033,
+      "id": 1029,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37223,7 +37096,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1034,
+      "id": 1030,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37253,7 +37126,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1035,
+      "id": 1031,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37283,7 +37156,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1036,
+      "id": 1032,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37313,7 +37186,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1037,
+      "id": 1033,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37343,7 +37216,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1038,
+      "id": 1034,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37373,7 +37246,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1039,
+      "id": 1035,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37403,7 +37276,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1040,
+      "id": 1036,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37433,7 +37306,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1041,
+      "id": 1037,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-09",
@@ -37463,7 +37336,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1042,
+      "id": 1038,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-09",
@@ -37493,7 +37366,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1043,
+      "id": 1039,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-09",
@@ -37523,7 +37396,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1044,
+      "id": 1040,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-09",
@@ -37553,7 +37426,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1045,
+      "id": 1041,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-09",
@@ -37583,7 +37456,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1046,
+      "id": 1042,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-09",
@@ -37613,7 +37486,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1047,
+      "id": 1043,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-10",
@@ -37643,7 +37516,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1048,
+      "id": 1044,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-10",
@@ -37673,7 +37546,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1049,
+      "id": 1045,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-10",
@@ -37703,7 +37576,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1050,
+      "id": 1046,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-10",
@@ -37733,7 +37606,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1051,
+      "id": 1047,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-10",
@@ -37763,7 +37636,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1052,
+      "id": 1048,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-13",
@@ -37793,7 +37666,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1053,
+      "id": 1049,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-13",
@@ -37823,7 +37696,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1054,
+      "id": 1050,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-13",
@@ -37853,7 +37726,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1055,
+      "id": 1051,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-13",
@@ -37883,7 +37756,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1056,
+      "id": 1052,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-13",
@@ -37913,7 +37786,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1057,
+      "id": 1053,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-13",
@@ -37943,7 +37816,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1058,
+      "id": 1054,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-13",
@@ -37973,7 +37846,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1059,
+      "id": 1055,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38003,7 +37876,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1060,
+      "id": 1056,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38033,7 +37906,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1061,
+      "id": 1057,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38063,7 +37936,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1062,
+      "id": 1058,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38093,7 +37966,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1063,
+      "id": 1059,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38123,7 +37996,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1064,
+      "id": 1060,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38153,7 +38026,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1065,
+      "id": 1061,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38183,7 +38056,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1066,
+      "id": 1062,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38194,14 +38067,14 @@ window.TIMESHEET_DATA = {
       "startTime": "15:00",
       "endTime": "16:00",
       "hours": 1.0,
-      "subject": "VAT online 开发需求",
-      "prefix": "VAT",
-      "category": "Other",
+      "subject": "CR-CRM VAT online 开发需求",
+      "prefix": "CR",
+      "category": "CR",
       "projectName": "",
       "crCode": "",
       "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
+      "crSystem": "CRM VAT online 开发需求",
+      "workItemName": "CRM VAT online 开发需求",
       "showTimeAs": "Busy",
       "organizer": "Qin, Sara",
       "location": "Microsoft Teams Meeting",
@@ -38210,10 +38083,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1067,
+      "id": 1063,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38243,7 +38116,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1068,
+      "id": 1064,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38273,7 +38146,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1069,
+      "id": 1065,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38303,7 +38176,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1070,
+      "id": 1066,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38333,7 +38206,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1071,
+      "id": 1067,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38363,7 +38236,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1072,
+      "id": 1068,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38393,7 +38266,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1073,
+      "id": 1069,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38423,7 +38296,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1074,
+      "id": 1070,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38453,7 +38326,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1075,
+      "id": 1071,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38483,7 +38356,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1076,
+      "id": 1072,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38513,7 +38386,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1077,
+      "id": 1073,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38543,7 +38416,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1078,
+      "id": 1074,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38573,7 +38446,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1079,
+      "id": 1075,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38603,7 +38476,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1080,
+      "id": 1076,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38633,7 +38506,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1081,
+      "id": 1077,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38644,14 +38517,14 @@ window.TIMESHEET_DATA = {
       "startTime": "12:00",
       "endTime": "13:00",
       "hours": 1.0,
-      "subject": "Lunch Workshop about Core Requirement & High Level Design Criteria",
-      "prefix": "LUNCH",
-      "category": "Other",
+      "subject": "MGMT-Team Lunch Workshop about Core Requirement & High Level Design Criteria",
+      "prefix": "MGMT",
+      "category": "Mgmt",
       "projectName": "",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "Other",
+      "workItemName": "Mgmt",
       "showTimeAs": "Busy",
       "organizer": "Fu, Cathy",
       "location": "CNSH-JQ-BLD11-3F-Meeting Room309 (22people/Polycom/TV)",
@@ -38660,10 +38533,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1082,
+      "id": 1078,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38693,7 +38566,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1083,
+      "id": 1079,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38723,7 +38596,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1084,
+      "id": 1080,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38753,7 +38626,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1085,
+      "id": 1081,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38783,7 +38656,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1086,
+      "id": 1082,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38813,7 +38686,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1087,
+      "id": 1083,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38843,7 +38716,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1088,
+      "id": 1084,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -38873,7 +38746,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1089,
+      "id": 1085,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -38903,7 +38776,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1090,
+      "id": 1086,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -38933,7 +38806,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1091,
+      "id": 1087,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -38963,37 +38836,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1092,
-      "member": "Sara",
-      "sourceFile": "Outlook / Qin, Sara",
-      "date": "2026-07-17",
-      "weekStart": "2026-07-13",
-      "weekday": "Fri",
-      "start": "2026-07-17T11:00",
-      "end": "2026-07-17T11:25",
-      "startTime": "11:00",
-      "endTime": "11:25",
-      "hours": 0.42,
-      "subject": "DSC Release Review",
-      "prefix": "DSC",
-      "category": "Other",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
-      "showTimeAs": "Busy",
-      "organizer": "Fu, Cathy",
-      "location": "Microsoft Teams Meeting; CNSH-JQ-BLD6-1F-Meeting Room 112 (3 people/telephone/)",
-      "allDay": false,
-      "canceled": false,
-      "isReminder": false,
-      "isWork": true,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 1093,
+      "id": 1088,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -39023,7 +38866,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1094,
+      "id": 1089,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -39053,7 +38896,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1095,
+      "id": 1090,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -39083,7 +38926,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1096,
+      "id": 1091,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -39113,7 +38956,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1097,
+      "id": 1092,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-20",
@@ -39143,7 +38986,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": false
     },
     {
-      "id": 1098,
+      "id": 1093,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-20",
@@ -39173,7 +39016,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1099,
+      "id": 1094,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-21",
@@ -39203,7 +39046,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1100,
+      "id": 1095,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-21",
@@ -39233,7 +39076,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1101,
+      "id": 1096,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-21",
@@ -39263,7 +39106,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1102,
+      "id": 1097,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-21",
@@ -39293,7 +39136,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1103,
+      "id": 1098,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-21",
@@ -39323,7 +39166,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1104,
+      "id": 1099,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-21",
@@ -39353,7 +39196,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1105,
+      "id": 1100,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-21",
@@ -39383,7 +39226,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1106,
+      "id": 1101,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39413,7 +39256,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1107,
+      "id": 1102,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39443,7 +39286,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1108,
+      "id": 1103,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39473,7 +39316,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1109,
+      "id": 1104,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39503,7 +39346,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1110,
+      "id": 1105,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39533,7 +39376,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1111,
+      "id": 1106,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39563,7 +39406,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1112,
+      "id": 1107,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39593,7 +39436,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1113,
+      "id": 1108,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39623,7 +39466,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1114,
+      "id": 1109,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39653,7 +39496,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1115,
+      "id": 1110,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39683,7 +39526,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1116,
+      "id": 1111,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39713,7 +39556,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1117,
+      "id": 1112,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39743,7 +39586,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1118,
+      "id": 1113,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -39773,7 +39616,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1119,
+      "id": 1114,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -39803,7 +39646,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1120,
+      "id": 1115,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -39833,7 +39676,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1121,
+      "id": 1116,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -39863,7 +39706,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1122,
+      "id": 1117,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -39893,7 +39736,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1123,
+      "id": 1118,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -39923,7 +39766,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1124,
+      "id": 1119,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -39953,7 +39796,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1125,
+      "id": 1120,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -39983,7 +39826,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1126,
+      "id": 1121,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40013,7 +39856,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1127,
+      "id": 1122,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40043,7 +39886,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1128,
+      "id": 1123,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40073,7 +39916,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1129,
+      "id": 1124,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40103,7 +39946,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1130,
+      "id": 1125,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40133,7 +39976,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1131,
+      "id": 1126,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40163,7 +40006,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1132,
+      "id": 1127,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40193,7 +40036,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1133,
+      "id": 1128,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40223,7 +40066,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1134,
+      "id": 1129,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40253,7 +40096,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1135,
+      "id": 1130,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40283,7 +40126,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1136,
+      "id": 1131,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40313,7 +40156,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1137,
+      "id": 1132,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40343,7 +40186,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1138,
+      "id": 1133,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40373,7 +40216,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1139,
+      "id": 1134,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40403,7 +40246,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1140,
+      "id": 1135,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40433,7 +40276,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1141,
+      "id": 1136,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40463,7 +40306,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1142,
+      "id": 1137,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40493,7 +40336,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1143,
+      "id": 1138,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40523,7 +40366,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1144,
+      "id": 1139,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40553,7 +40396,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1145,
+      "id": 1140,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40583,7 +40426,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1146,
+      "id": 1141,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40613,7 +40456,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1147,
+      "id": 1142,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40643,7 +40486,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1148,
+      "id": 1143,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40673,7 +40516,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1149,
+      "id": 1144,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40703,7 +40546,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1150,
+      "id": 1145,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40733,7 +40576,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1151,
+      "id": 1146,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -40763,7 +40606,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1152,
+      "id": 1147,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -40793,7 +40636,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1153,
+      "id": 1148,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -40823,7 +40666,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1154,
+      "id": 1149,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -40853,7 +40696,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1155,
+      "id": 1150,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -40883,7 +40726,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1156,
+      "id": 1151,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -40913,7 +40756,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1157,
+      "id": 1152,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -40943,7 +40786,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1158,
+      "id": 1153,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -40973,7 +40816,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1159,
+      "id": 1154,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -41003,7 +40846,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1160,
+      "id": 1155,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -41033,7 +40876,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1161,
+      "id": 1156,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-30",
@@ -41063,7 +40906,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1162,
+      "id": 1157,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-30",
@@ -41093,7 +40936,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1163,
+      "id": 1158,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-30",
@@ -41123,7 +40966,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1164,
+      "id": 1159,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-30",
@@ -41153,7 +40996,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1165,
+      "id": 1160,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-30",
@@ -41183,7 +41026,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1166,
+      "id": 1161,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-30",
@@ -41213,7 +41056,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1167,
+      "id": 1162,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-30",
@@ -41243,7 +41086,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1168,
+      "id": 1163,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-31",
@@ -41273,7 +41116,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1169,
+      "id": 1164,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-31",
@@ -41303,7 +41146,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1170,
+      "id": 1165,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-31",
@@ -41333,7 +41176,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1171,
+      "id": 1166,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-31",
@@ -41363,7 +41206,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1172,
+      "id": 1167,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-31",
@@ -41393,7 +41236,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1173,
+      "id": 1168,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-31",
@@ -41423,7 +41266,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1174,
+      "id": 1169,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-31",
