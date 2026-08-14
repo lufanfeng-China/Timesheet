@@ -1,5 +1,5 @@
 window.TIMESHEET_DATA = {
-  "generatedAt": "2026-08-14T15:35:26",
+  "generatedAt": "2026-08-14T15:51:36",
   "sourceDirectory": "Outlook shared calendars (Sky / Dai / Mia / Sara)",
   "sourceUrl": "",
   "appMappingSource": {
@@ -144,7 +144,7 @@ window.TIMESHEET_DATA = {
     {
       "member": "Sara",
       "file": "Outlook / Qin, Sara",
-      "rows": 170
+      "rows": 160
     },
     {
       "member": "Sky",
@@ -220,28 +220,28 @@ window.TIMESHEET_DATA = {
       }
     },
     "Sara": {
-      "rawEvents": 170,
-      "trackedEvents": 166,
-      "workEvents": 165,
+      "rawEvents": 160,
+      "trackedEvents": 160,
+      "workEvents": 159,
       "timeOffEvents": 1,
       "standardHours": 360,
-      "workHours": 116.42,
-      "distributionWorkHours": 100.5,
-      "otherWorkHours": 15.92,
+      "workHours": 111.42,
+      "distributionWorkHours": 108.5,
+      "otherWorkHours": 2.92,
       "timeOffHours": 8.5,
       "availableWorkHours": 351.5,
-      "creditHours": 124.92,
-      "varianceHours": -235.08,
-      "utilization": 0.3312,
-      "canceledEvents": 3,
+      "creditHours": 119.92,
+      "varianceHours": -240.08,
+      "utilization": 0.317,
+      "canceledEvents": 0,
       "allDayEvents": 0,
-      "reminderEvents": 1,
+      "reminderEvents": 0,
       "categoryHours": {
-        "Project": 51.0,
-        "CR": 5.0,
-        "Mgmt": 11.5,
+        "Project": 50.0,
+        "CR": 7.0,
+        "Mgmt": 18.5,
         "Sup": 33.0,
-        "Other": 15.92,
+        "Other": 2.92,
         "PTO": 8.5
       }
     },
@@ -252,8 +252,8 @@ window.TIMESHEET_DATA = {
       "timeOffEvents": 12,
       "standardHours": 360,
       "workHours": 247.5,
-      "distributionWorkHours": 247.0,
-      "otherWorkHours": 0.5,
+      "distributionWorkHours": 247.5,
+      "otherWorkHours": 0,
       "timeOffHours": 80.5,
       "availableWorkHours": 279.5,
       "creditHours": 328.0,
@@ -266,8 +266,7 @@ window.TIMESHEET_DATA = {
         "Project": 87.0,
         "CR": 19.5,
         "Mgmt": 61.25,
-        "Sup": 79.25,
-        "Other": 0.5,
+        "Sup": 79.75,
         "PTO": 80.5
       }
     }
@@ -633,16 +632,16 @@ window.TIMESHEET_DATA = {
       "weekStart": "2026-07-06",
       "weekEnd": "2026-07-12",
       "targetHours": 40,
-      "workHours": 32.25,
+      "workHours": 30.25,
       "timeOffHours": 0,
-      "creditHours": 32.25,
-      "varianceHours": -7.75,
+      "creditHours": 30.25,
+      "varianceHours": -9.75,
       "categoryHours": {
         "Project": 14.5,
-        "CR": 1.0,
-        "Mgmt": 8.5,
+        "CR": 1.5,
+        "Mgmt": 9.5,
         "Sup": 4.25,
-        "Other": 4.0
+        "Other": 0.5
       }
     },
     {
@@ -650,16 +649,16 @@ window.TIMESHEET_DATA = {
       "weekStart": "2026-07-13",
       "weekEnd": "2026-07-19",
       "targetHours": 40,
-      "workHours": 27.67,
+      "workHours": 25.67,
       "timeOffHours": 0,
-      "creditHours": 27.67,
-      "varianceHours": -12.33,
+      "creditHours": 25.67,
+      "varianceHours": -14.33,
       "categoryHours": {
         "Project": 9.0,
-        "CR": 1.0,
-        "Mgmt": 1.0,
+        "CR": 2.5,
+        "Mgmt": 3.0,
         "Sup": 8.75,
-        "Other": 7.92
+        "Other": 2.42
       }
     },
     {
@@ -667,16 +666,15 @@ window.TIMESHEET_DATA = {
       "weekStart": "2026-07-20",
       "weekEnd": "2026-07-26",
       "targetHours": 40,
-      "workHours": 29.25,
+      "workHours": 28.25,
       "timeOffHours": 8.5,
-      "creditHours": 37.75,
-      "varianceHours": -2.25,
+      "creditHours": 36.75,
+      "varianceHours": -3.25,
       "categoryHours": {
         "Project": 12.5,
         "CR": 1.0,
-        "Mgmt": 1.0,
+        "Mgmt": 3.0,
         "Sup": 11.75,
-        "Other": 3.0,
         "PTO": 8.5
       }
     },
@@ -690,11 +688,10 @@ window.TIMESHEET_DATA = {
       "creditHours": 27.25,
       "varianceHours": -12.75,
       "categoryHours": {
-        "Project": 15.0,
+        "Project": 14.0,
         "CR": 2.0,
-        "Mgmt": 1.0,
-        "Sup": 8.25,
-        "Other": 1.0
+        "Mgmt": 3.0,
+        "Sup": 8.25
       }
     },
     {
@@ -842,8 +839,7 @@ window.TIMESHEET_DATA = {
         "Project": 10.0,
         "CR": 0.5,
         "Mgmt": 15.25,
-        "Sup": 8.5,
-        "Other": 0.5,
+        "Sup": 9.0,
         "PTO": 4.0
       }
     }
@@ -8138,14 +8134,14 @@ window.TIMESHEET_DATA = {
       "startTime": "16:15",
       "endTime": "17:15",
       "hours": 1.0,
-      "subject": "PROJ-[BPG DAM] phase II初版方案讨论-RPA可行性",
+      "subject": "Proj-[BPG DAM phase II] phase II初版方案讨论-RPA可行性",
       "prefix": "PROJ",
       "category": "Project",
-      "projectName": "BPG DAM",
+      "projectName": "BPG DAM phase II",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "BPG DAM",
+      "workItemName": "BPG DAM phase II",
       "showTimeAs": "Busy",
       "organizer": "Zhao, Clara",
       "location": "Microsoft Teams Meeting",
@@ -13118,14 +13114,14 @@ window.TIMESHEET_DATA = {
       "startTime": "15:30",
       "endTime": "17:00",
       "hours": 1.5,
-      "subject": "PROJ-[BPG DAM]E1 Quote设置与操作讨论开发需求",
+      "subject": "Proj-[BPG DAM phase II] E1 Quote设置与操作讨论开发需求",
       "prefix": "PROJ",
       "category": "Project",
-      "projectName": "BPG DAM",
+      "projectName": "BPG DAM phase II",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "BPG DAM",
+      "workItemName": "BPG DAM phase II",
       "showTimeAs": "Busy",
       "organizer": "Zhao, Clara",
       "location": "Microsoft Teams Meeting",
@@ -15098,14 +15094,14 @@ window.TIMESHEET_DATA = {
       "startTime": "15:30",
       "endTime": "16:00",
       "hours": 0.5,
-      "subject": "BPM-QAD RPA Discussion",
-      "prefix": "BPM",
-      "category": "Other",
+      "subject": "SUP-RPA BPM-QAD RPA Discussion",
+      "prefix": "SUP",
+      "category": "Sup",
       "projectName": "",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "Other",
+      "workItemName": "Sup",
       "showTimeAs": "Busy",
       "organizer": "Ye, Bill",
       "location": "Microsoft Teams Meeting",
@@ -15114,7 +15110,7 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
       "id": 297,
@@ -36693,36 +36689,6 @@ window.TIMESHEET_DATA = {
       "date": "2026-07-06",
       "weekStart": "2026-07-06",
       "weekday": "Mon",
-      "start": "2026-07-06T10:00",
-      "end": "2026-07-06T10:30",
-      "startTime": "10:00",
-      "endTime": "10:30",
-      "hours": 0.5,
-      "subject": "2026 - Windows Server Patch Calendar Reminder - No meeting required",
-      "prefix": "",
-      "category": "Reminder",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Reminder",
-      "showTimeAs": "Tentative",
-      "organizer": "Wang, Benson",
-      "location": "",
-      "allDay": false,
-      "canceled": false,
-      "isReminder": true,
-      "isWork": false,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 1017,
-      "member": "Sara",
-      "sourceFile": "Outlook / Qin, Sara",
-      "date": "2026-07-06",
-      "weekStart": "2026-07-06",
-      "weekday": "Mon",
       "start": "2026-07-06T11:30",
       "end": "2026-07-06T13:00",
       "startTime": "11:30",
@@ -36747,7 +36713,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1018,
+      "id": 1017,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-06",
@@ -36777,7 +36743,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1019,
+      "id": 1018,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-06",
@@ -36807,7 +36773,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1020,
+      "id": 1019,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-06",
@@ -36837,7 +36803,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": false
     },
     {
-      "id": 1021,
+      "id": 1020,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-06",
@@ -36867,7 +36833,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1022,
+      "id": 1021,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -36897,7 +36863,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1023,
+      "id": 1022,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -36927,7 +36893,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1024,
+      "id": 1023,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -36957,7 +36923,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1025,
+      "id": 1024,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -36968,14 +36934,14 @@ window.TIMESHEET_DATA = {
       "startTime": "10:00",
       "endTime": "10:30",
       "hours": 0.5,
-      "subject": "获取VAT发票系统主数据的产品名称讨论",
-      "prefix": "",
-      "category": "Other",
+      "subject": "CR-CRM VAT 获取VAT发票系统主数据的产品名称讨论",
+      "prefix": "CR",
+      "category": "CR",
       "projectName": "",
       "crCode": "",
       "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
+      "crSystem": "CRM VAT 获取VAT发票系统主数据的产品名称讨论",
+      "workItemName": "CRM VAT 获取VAT发票系统主数据的产品名称讨论",
       "showTimeAs": "Busy",
       "organizer": "Song, Chunli",
       "location": "Microsoft Teams Meeting",
@@ -36984,10 +36950,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1026,
+      "id": 1025,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -37017,7 +36983,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1027,
+      "id": 1026,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -37047,7 +37013,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1028,
+      "id": 1027,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -37077,7 +37043,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1029,
+      "id": 1028,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -37107,7 +37073,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1030,
+      "id": 1029,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -37137,7 +37103,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1031,
+      "id": 1030,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -37167,7 +37133,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1032,
+      "id": 1031,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-07",
@@ -37197,37 +37163,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1033,
-      "member": "Sara",
-      "sourceFile": "Outlook / Qin, Sara",
-      "date": "2026-07-07",
-      "weekStart": "2026-07-06",
-      "weekday": "Tue",
-      "start": "2026-07-07T23:00",
-      "end": "2026-07-08T00:00",
-      "startTime": "23:00",
-      "endTime": "00:00",
-      "hours": 1.0,
-      "subject": "Application Certification Office Hours - Option 1",
-      "prefix": "APPLICATION",
-      "category": "Other",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
-      "showTimeAs": "Tentative",
-      "organizer": "Mordach, Alex",
-      "location": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NzAyM2Q4NTYtZjgzMi00MWMxLTlkZTctZTRjZjg0ZjhjOWNl%40thread.v2/0?context=%7b%22Tid%22%3a%22b67d722d-aa8a-4777-a169-ebeb7a6a3b67%22%2c%22Oid%22%3a%2256a023f0-02d2-4deb-b824-c34d168c585a%22%7d",
-      "allDay": false,
-      "canceled": false,
-      "isReminder": false,
-      "isWork": true,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 1034,
+      "id": 1032,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37257,7 +37193,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1035,
+      "id": 1033,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37268,14 +37204,14 @@ window.TIMESHEET_DATA = {
       "startTime": "10:00",
       "endTime": "11:00",
       "hours": 1.0,
-      "subject": "Application Certification Office Hours - Option 2",
-      "prefix": "APPLICATION",
-      "category": "Other",
+      "subject": "MGMT-Team",
+      "prefix": "MGMT",
+      "category": "Mgmt",
       "projectName": "",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "Other",
+      "workItemName": "Mgmt",
       "showTimeAs": "Busy",
       "organizer": "Mordach, Alex",
       "location": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_Y2QyMzMyNTItMWM4MS00NWJiLWE1NWYtNzdlZDFmNWYzZmZk%40thread.v2/0?context=%7b%22Tid%22%3a%22b67d722d-aa8a-4777-a169-ebeb7a6a3b67%22%2c%22Oid%22%3a%2256a023f0-02d2-4deb-b824-c34d168c585a%22%7d",
@@ -37284,10 +37220,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1036,
+      "id": 1034,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37317,7 +37253,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1037,
+      "id": 1035,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37347,7 +37283,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1038,
+      "id": 1036,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37377,7 +37313,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1039,
+      "id": 1037,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37407,7 +37343,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1040,
+      "id": 1038,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37437,7 +37373,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1041,
+      "id": 1039,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37467,7 +37403,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1042,
+      "id": 1040,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-08",
@@ -37497,7 +37433,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1043,
+      "id": 1041,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-09",
@@ -37527,7 +37463,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1044,
+      "id": 1042,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-09",
@@ -37557,7 +37493,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1045,
+      "id": 1043,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-09",
@@ -37587,7 +37523,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1046,
+      "id": 1044,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-09",
@@ -37617,7 +37553,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1047,
+      "id": 1045,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-09",
@@ -37647,7 +37583,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1048,
+      "id": 1046,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-09",
@@ -37677,37 +37613,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1049,
-      "member": "Sara",
-      "sourceFile": "Outlook / Qin, Sara",
-      "date": "2026-07-09",
-      "weekStart": "2026-07-06",
-      "weekday": "Thu",
-      "start": "2026-07-09T23:00",
-      "end": "2026-07-10T00:00",
-      "startTime": "23:00",
-      "endTime": "00:00",
-      "hours": 1.0,
-      "subject": "Application Certification Office Hours - Option 1",
-      "prefix": "APPLICATION",
-      "category": "Other",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
-      "showTimeAs": "Tentative",
-      "organizer": "Mordach, Alex",
-      "location": "https://teams.microsoft.com/l/meetup-join/19%3ameeting_NTExYTRmNzUtY2NjYS00YzAyLWE5OWUtOWM0M2RkMWMyYzMx%40thread.v2/0?context=%7b%22Tid%22%3a%22b67d722d-aa8a-4777-a169-ebeb7a6a3b67%22%2c%22Oid%22%3a%2256a023f0-02d2-4deb-b824-c34d168c585a%22%7d",
-      "allDay": false,
-      "canceled": false,
-      "isReminder": false,
-      "isWork": true,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 1050,
+      "id": 1047,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-10",
@@ -37737,7 +37643,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1051,
+      "id": 1048,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-10",
@@ -37767,7 +37673,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1052,
+      "id": 1049,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-10",
@@ -37797,7 +37703,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1053,
+      "id": 1050,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-10",
@@ -37827,7 +37733,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1054,
+      "id": 1051,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-10",
@@ -37857,7 +37763,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1055,
+      "id": 1052,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-13",
@@ -37887,7 +37793,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1056,
+      "id": 1053,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-13",
@@ -37917,7 +37823,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1057,
+      "id": 1054,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-13",
@@ -37947,7 +37853,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1058,
+      "id": 1055,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-13",
@@ -37977,7 +37883,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1059,
+      "id": 1056,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-13",
@@ -38007,7 +37913,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1060,
+      "id": 1057,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-13",
@@ -38037,7 +37943,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1061,
+      "id": 1058,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-13",
@@ -38067,7 +37973,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1062,
+      "id": 1059,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38097,7 +38003,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1063,
+      "id": 1060,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38127,7 +38033,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1064,
+      "id": 1061,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38157,7 +38063,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1065,
+      "id": 1062,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38187,7 +38093,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1066,
+      "id": 1063,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38217,7 +38123,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1067,
+      "id": 1064,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38247,7 +38153,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1068,
+      "id": 1065,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38277,7 +38183,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1069,
+      "id": 1066,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38307,7 +38213,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": false
     },
     {
-      "id": 1070,
+      "id": 1067,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38337,7 +38243,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1071,
+      "id": 1068,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-14",
@@ -38367,37 +38273,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1072,
-      "member": "Sara",
-      "sourceFile": "Outlook / Qin, Sara",
-      "date": "2026-07-14",
-      "weekStart": "2026-07-13",
-      "weekday": "Tue",
-      "start": "2026-07-14T23:00",
-      "end": "2026-07-15T00:00",
-      "startTime": "23:00",
-      "endTime": "00:00",
-      "hours": 1.0,
-      "subject": "Application Certification Office Hours - Option 1",
-      "prefix": "APPLICATION",
-      "category": "Other",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
-      "showTimeAs": "Tentative",
-      "organizer": "Mordach, Alex",
-      "location": "Microsoft Teams Meeting",
-      "allDay": false,
-      "canceled": false,
-      "isReminder": false,
-      "isWork": true,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 1073,
+      "id": 1069,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38427,7 +38303,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1074,
+      "id": 1070,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38438,14 +38314,14 @@ window.TIMESHEET_DATA = {
       "startTime": "10:00",
       "endTime": "10:30",
       "hours": 0.5,
-      "subject": "TR PS discussion",
-      "prefix": "TR",
-      "category": "Other",
+      "subject": "CR-CRM CE TR PS discussion",
+      "prefix": "CR",
+      "category": "CR",
       "projectName": "",
       "crCode": "",
       "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
+      "crSystem": "CRM CE TR PS discussion",
+      "workItemName": "CRM CE TR PS discussion",
       "showTimeAs": "Busy",
       "organizer": "zhang, zhenfang",
       "location": "Microsoft Teams Meeting",
@@ -38454,10 +38330,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1075,
+      "id": 1071,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38487,7 +38363,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1076,
+      "id": 1072,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38517,7 +38393,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1077,
+      "id": 1073,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38528,14 +38404,14 @@ window.TIMESHEET_DATA = {
       "startTime": "13:00",
       "endTime": "14:00",
       "hours": 1.0,
-      "subject": "Application Certification Office Hours - Option 2",
-      "prefix": "APPLICATION",
-      "category": "Other",
+      "subject": "MGMT-Team",
+      "prefix": "MGMT",
+      "category": "Mgmt",
       "projectName": "",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "Other",
+      "workItemName": "Mgmt",
       "showTimeAs": "Busy",
       "organizer": "Mordach, Alex",
       "location": "Microsoft Teams Meeting",
@@ -38544,10 +38420,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1078,
+      "id": 1074,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38577,7 +38453,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1079,
+      "id": 1075,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38607,7 +38483,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1080,
+      "id": 1076,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38637,7 +38513,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1081,
+      "id": 1077,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-15",
@@ -38667,7 +38543,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1082,
+      "id": 1078,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38697,7 +38573,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1083,
+      "id": 1079,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38727,37 +38603,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1084,
-      "member": "Sara",
-      "sourceFile": "Outlook / Qin, Sara",
-      "date": "2026-07-16",
-      "weekStart": "2026-07-13",
-      "weekday": "Thu",
-      "start": "2026-07-16T10:00",
-      "end": "2026-07-16T10:30",
-      "startTime": "10:00",
-      "endTime": "10:30",
-      "hours": 0.5,
-      "subject": "Canceled: BI-Weekly Meeting with Sara",
-      "prefix": "BI",
-      "category": "Canceled",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Canceled",
-      "showTimeAs": "Unknown",
-      "organizer": "Lu, Sky",
-      "location": "Microsoft Teams Meeting",
-      "allDay": false,
-      "canceled": true,
-      "isReminder": false,
-      "isWork": false,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 1085,
+      "id": 1080,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38787,7 +38633,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1086,
+      "id": 1081,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38817,7 +38663,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": false
     },
     {
-      "id": 1087,
+      "id": 1082,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38828,14 +38674,14 @@ window.TIMESHEET_DATA = {
       "startTime": "14:00",
       "endTime": "15:00",
       "hours": 1.0,
-      "subject": "BID CE需求",
-      "prefix": "BID",
-      "category": "Other",
+      "subject": "CR-CRM CE BID CE需求",
+      "prefix": "CR",
+      "category": "CR",
       "projectName": "",
       "crCode": "",
       "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
+      "crSystem": "CRM CE BID CE需求",
+      "workItemName": "CRM CE BID CE需求",
       "showTimeAs": "Busy",
       "organizer": "Luo, Tingfeng",
       "location": "Microsoft Teams 会议",
@@ -38844,10 +38690,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1088,
+      "id": 1083,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38877,7 +38723,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1089,
+      "id": 1084,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38907,7 +38753,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1090,
+      "id": 1085,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38937,7 +38783,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1091,
+      "id": 1086,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38967,7 +38813,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1092,
+      "id": 1087,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-16",
@@ -38997,37 +38843,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1093,
-      "member": "Sara",
-      "sourceFile": "Outlook / Qin, Sara",
-      "date": "2026-07-16",
-      "weekStart": "2026-07-13",
-      "weekday": "Thu",
-      "start": "2026-07-16T23:00",
-      "end": "2026-07-17T00:00",
-      "startTime": "23:00",
-      "endTime": "00:00",
-      "hours": 1.0,
-      "subject": "Application Certification Office Hours - Option 1",
-      "prefix": "APPLICATION",
-      "category": "Other",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
-      "showTimeAs": "Tentative",
-      "organizer": "Mordach, Alex",
-      "location": "Microsoft Teams Meeting",
-      "allDay": false,
-      "canceled": false,
-      "isReminder": false,
-      "isWork": true,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 1094,
+      "id": 1088,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -39057,7 +38873,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1095,
+      "id": 1089,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -39087,7 +38903,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1096,
+      "id": 1090,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -39098,14 +38914,14 @@ window.TIMESHEET_DATA = {
       "startTime": "10:00",
       "endTime": "11:00",
       "hours": 1.0,
-      "subject": "（二期）私车公用报销AI助手",
-      "prefix": "",
-      "category": "Other",
+      "subject": "MGMT-Team",
+      "prefix": "MGMT",
+      "category": "Mgmt",
       "projectName": "",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "Other",
+      "workItemName": "Mgmt",
       "showTimeAs": "Busy",
       "organizer": "Lin, Tong",
       "location": "Microsoft Teams Meeting",
@@ -39114,10 +38930,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1097,
+      "id": 1091,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -39147,7 +38963,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1098,
+      "id": 1092,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -39177,7 +38993,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": false
     },
     {
-      "id": 1099,
+      "id": 1093,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -39207,7 +39023,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1100,
+      "id": 1094,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -39237,7 +39053,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1101,
+      "id": 1095,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -39267,7 +39083,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1102,
+      "id": 1096,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-17",
@@ -39297,7 +39113,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1103,
+      "id": 1097,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-20",
@@ -39327,7 +39143,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": false
     },
     {
-      "id": 1104,
+      "id": 1098,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-20",
@@ -39357,7 +39173,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1105,
+      "id": 1099,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-21",
@@ -39387,7 +39203,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1106,
+      "id": 1100,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-21",
@@ -39417,7 +39233,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1107,
+      "id": 1101,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-21",
@@ -39447,7 +39263,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1108,
+      "id": 1102,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-21",
@@ -39477,7 +39293,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1109,
+      "id": 1103,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-21",
@@ -39488,14 +39304,14 @@ window.TIMESHEET_DATA = {
       "startTime": "15:00",
       "endTime": "15:30",
       "hours": 0.5,
-      "subject": "【通知】出差津贴系统迁移至Workflow平台",
-      "prefix": "",
-      "category": "Other",
+      "subject": "MGMT-Team",
+      "prefix": "MGMT",
+      "category": "Mgmt",
       "projectName": "",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "Other",
+      "workItemName": "Mgmt",
       "showTimeAs": "Busy",
       "organizer": "China Concur",
       "location": "Microsoft Teams 会议",
@@ -39504,10 +39320,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1110,
+      "id": 1104,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-21",
@@ -39537,7 +39353,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1111,
+      "id": 1105,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-21",
@@ -39567,7 +39383,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1112,
+      "id": 1106,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39597,37 +39413,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1113,
-      "member": "Sara",
-      "sourceFile": "Outlook / Qin, Sara",
-      "date": "2026-07-22",
-      "weekStart": "2026-07-20",
-      "weekday": "Wed",
-      "start": "2026-07-22T09:30",
-      "end": "2026-07-22T11:30",
-      "startTime": "09:30",
-      "endTime": "11:30",
-      "hours": 2.0,
-      "subject": "Canceled: IT BA meeting",
-      "prefix": "IT",
-      "category": "Canceled",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Canceled",
-      "showTimeAs": "Unknown",
-      "organizer": "Lu, Sky",
-      "location": "Microsoft Teams Meeting; CNSH-JQ-BLD11-3F-Meeting Room308 (8people/TV)",
-      "allDay": false,
-      "canceled": true,
-      "isReminder": false,
-      "isWork": false,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 1114,
+      "id": 1107,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39657,7 +39443,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1115,
+      "id": 1108,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39687,7 +39473,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1116,
+      "id": 1109,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39698,14 +39484,14 @@ window.TIMESHEET_DATA = {
       "startTime": "11:00",
       "endTime": "11:30",
       "hours": 0.5,
-      "subject": "DSC Team Welcome brochure Meeting",
-      "prefix": "DSC",
-      "category": "Other",
+      "subject": "MGMT-Team",
+      "prefix": "MGMT",
+      "category": "Mgmt",
       "projectName": "",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "Other",
+      "workItemName": "Mgmt",
       "showTimeAs": "Busy",
       "organizer": "Yin, Callie",
       "location": "Microsoft Teams Meeting",
@@ -39714,10 +39500,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1117,
+      "id": 1110,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39747,7 +39533,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1118,
+      "id": 1111,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39777,7 +39563,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1119,
+      "id": 1112,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39807,7 +39593,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1120,
+      "id": 1113,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39837,7 +39623,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1121,
+      "id": 1114,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39867,7 +39653,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1122,
+      "id": 1115,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39897,7 +39683,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1123,
+      "id": 1116,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39927,7 +39713,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1124,
+      "id": 1117,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-22",
@@ -39938,14 +39724,14 @@ window.TIMESHEET_DATA = {
       "startTime": "22:00",
       "endTime": "23:00",
       "hours": 1.0,
-      "subject": "Join Us: Women in IT Council Summer Event",
-      "prefix": "JOIN",
-      "category": "Other",
+      "subject": "MGMT-Team",
+      "prefix": "MGMT",
+      "category": "Mgmt",
       "projectName": "",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "Other",
+      "workItemName": "Mgmt",
       "showTimeAs": "Busy",
       "organizer": "WomenInITCouncil",
       "location": "Microsoft Teams Meeting",
@@ -39954,10 +39740,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1125,
+      "id": 1118,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -39987,7 +39773,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1126,
+      "id": 1119,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -40017,7 +39803,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1127,
+      "id": 1120,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -40047,7 +39833,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1128,
+      "id": 1121,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -40077,7 +39863,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1129,
+      "id": 1122,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -40107,7 +39893,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1130,
+      "id": 1123,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -40137,7 +39923,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1131,
+      "id": 1124,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -40167,7 +39953,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1132,
+      "id": 1125,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-23",
@@ -40197,67 +39983,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1133,
-      "member": "Sara",
-      "sourceFile": "Outlook / Qin, Sara",
-      "date": "2026-07-23",
-      "weekStart": "2026-07-20",
-      "weekday": "Thu",
-      "start": "2026-07-23T23:00",
-      "end": "2026-07-23T23:15",
-      "startTime": "23:00",
-      "endTime": "23:15",
-      "hours": 0.25,
-      "subject": "Watch our pre-Town Hall colleague video!",
-      "prefix": "WATCH",
-      "category": "Other",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
-      "showTimeAs": "Tentative",
-      "organizer": "Marc Casper",
-      "location": "",
-      "allDay": false,
-      "canceled": false,
-      "isReminder": false,
-      "isWork": true,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 1134,
-      "member": "Sara",
-      "sourceFile": "Outlook / Qin, Sara",
-      "date": "2026-07-23",
-      "weekStart": "2026-07-20",
-      "weekday": "Thu",
-      "start": "2026-07-23T23:15",
-      "end": "2026-07-24T00:00",
-      "startTime": "23:15",
-      "endTime": "00:00",
-      "hours": 0.75,
-      "subject": "Join us at our Global Quarterly Town Hall",
-      "prefix": "JOIN",
-      "category": "Other",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Other",
-      "showTimeAs": "Tentative",
-      "organizer": "Marc Casper",
-      "location": "",
-      "allDay": false,
-      "canceled": false,
-      "isReminder": false,
-      "isWork": true,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 1135,
+      "id": 1126,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40287,7 +40013,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1136,
+      "id": 1127,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40317,7 +40043,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1137,
+      "id": 1128,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40347,7 +40073,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1138,
+      "id": 1129,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40377,7 +40103,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1139,
+      "id": 1130,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40407,7 +40133,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1140,
+      "id": 1131,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40437,7 +40163,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1141,
+      "id": 1132,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40467,7 +40193,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1142,
+      "id": 1133,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-24",
@@ -40497,7 +40223,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1143,
+      "id": 1134,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40527,7 +40253,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1144,
+      "id": 1135,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40557,7 +40283,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1145,
+      "id": 1136,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40587,7 +40313,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1146,
+      "id": 1137,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40617,7 +40343,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1147,
+      "id": 1138,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40647,7 +40373,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1148,
+      "id": 1139,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40677,7 +40403,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1149,
+      "id": 1140,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40707,7 +40433,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1150,
+      "id": 1141,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40737,7 +40463,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1151,
+      "id": 1142,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-27",
@@ -40767,7 +40493,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1152,
+      "id": 1143,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40797,7 +40523,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1153,
+      "id": 1144,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40827,7 +40553,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1154,
+      "id": 1145,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40857,7 +40583,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1155,
+      "id": 1146,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40887,7 +40613,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1156,
+      "id": 1147,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40917,7 +40643,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1157,
+      "id": 1148,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40928,14 +40654,14 @@ window.TIMESHEET_DATA = {
       "startTime": "15:00",
       "endTime": "15:30",
       "hours": 0.5,
-      "subject": "",
-      "prefix": "",
-      "category": "Other",
+      "subject": "MGMT-Team",
+      "prefix": "MGMT",
+      "category": "Mgmt",
       "projectName": "",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "Other",
+      "workItemName": "Mgmt",
       "showTimeAs": "Busy",
       "organizer": "Luo, Tingfeng",
       "location": "Microsoft Teams 会议",
@@ -40944,10 +40670,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1158,
+      "id": 1149,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -40977,7 +40703,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1159,
+      "id": 1150,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-28",
@@ -41007,7 +40733,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1160,
+      "id": 1151,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -41037,7 +40763,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1161,
+      "id": 1152,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -41067,7 +40793,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1162,
+      "id": 1153,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -41097,7 +40823,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1163,
+      "id": 1154,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -41127,7 +40853,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1164,
+      "id": 1155,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -41138,14 +40864,14 @@ window.TIMESHEET_DATA = {
       "startTime": "11:55",
       "endTime": "12:00",
       "hours": 0.08,
-      "subject": "Group photo – one more memory together",
-      "prefix": "GROUP",
-      "category": "Other",
+      "subject": "MGMT-Team",
+      "prefix": "MGMT",
+      "category": "Mgmt",
       "projectName": "",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "Other",
+      "workItemName": "Mgmt",
       "showTimeAs": "Busy",
       "organizer": "Yao, Lisa",
       "location": "Collaboration Area, 3rd Fl., Building 11",
@@ -41154,10 +40880,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1165,
+      "id": 1156,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -41187,7 +40913,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1166,
+      "id": 1157,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -41217,7 +40943,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1167,
+      "id": 1158,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -41228,14 +40954,14 @@ window.TIMESHEET_DATA = {
       "startTime": "15:00",
       "endTime": "16:00",
       "hours": 1.0,
-      "subject": "Project Planning: Mastering the Critical Path Method",
-      "prefix": "PROJECT",
-      "category": "Project",
-      "projectName": "Planning",
+      "subject": "MGMT-Team",
+      "prefix": "MGMT",
+      "category": "Mgmt",
+      "projectName": "",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "Planning",
+      "workItemName": "Mgmt",
       "showTimeAs": "Busy",
       "organizer": "Zhao, Dylan",
       "location": "310",
@@ -41247,7 +40973,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1168,
+      "id": 1159,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -41277,7 +41003,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1169,
+      "id": 1160,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-29",
@@ -41307,7 +41033,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1170,
+      "id": 1161,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-30",
@@ -41337,7 +41063,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1171,
+      "id": 1162,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-30",
@@ -41367,7 +41093,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1172,
+      "id": 1163,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-30",
@@ -41397,7 +41123,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1173,
+      "id": 1164,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-30",
@@ -41427,7 +41153,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1174,
+      "id": 1165,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-30",
@@ -41457,7 +41183,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1175,
+      "id": 1166,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-30",
@@ -41487,7 +41213,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1176,
+      "id": 1167,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-30",
@@ -41517,7 +41243,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1177,
+      "id": 1168,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-31",
@@ -41547,37 +41273,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1178,
-      "member": "Sara",
-      "sourceFile": "Outlook / Qin, Sara",
-      "date": "2026-07-31",
-      "weekStart": "2026-07-27",
-      "weekday": "Fri",
-      "start": "2026-07-31T10:00",
-      "end": "2026-07-31T11:00",
-      "startTime": "10:00",
-      "endTime": "11:00",
-      "hours": 1.0,
-      "subject": "Canceled: 20260724-Townhall 直播测试邀请",
-      "prefix": "",
-      "category": "Canceled",
-      "projectName": "",
-      "crCode": "",
-      "appName": "",
-      "crSystem": "",
-      "workItemName": "Canceled",
-      "showTimeAs": "Unknown",
-      "organizer": "Zhang, Qihang",
-      "location": "Microsoft Teams",
-      "allDay": false,
-      "canceled": true,
-      "isReminder": false,
-      "isWork": false,
-      "isTimeOff": false,
-      "isDistributionWork": false
-    },
-    {
-      "id": 1179,
+      "id": 1169,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-31",
@@ -41607,7 +41303,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1180,
+      "id": 1170,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-31",
@@ -41618,14 +41314,14 @@ window.TIMESHEET_DATA = {
       "startTime": "11:30",
       "endTime": "11:55",
       "hours": 0.42,
-      "subject": "DSC Release Review",
-      "prefix": "DSC",
-      "category": "Other",
+      "subject": "MGMT-Team",
+      "prefix": "MGMT",
+      "category": "Mgmt",
       "projectName": "",
       "crCode": "",
       "appName": "",
       "crSystem": "",
-      "workItemName": "Other",
+      "workItemName": "Mgmt",
       "showTimeAs": "Busy",
       "organizer": "Fu, Cathy",
       "location": "Microsoft Teams Meeting; CNSH-JQ-BLD11-3F-Meeting Room309 (22people/Polycom/TV)",
@@ -41634,10 +41330,10 @@ window.TIMESHEET_DATA = {
       "isReminder": false,
       "isWork": true,
       "isTimeOff": false,
-      "isDistributionWork": false
+      "isDistributionWork": true
     },
     {
-      "id": 1181,
+      "id": 1171,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-31",
@@ -41667,7 +41363,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1182,
+      "id": 1172,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-31",
@@ -41697,7 +41393,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1183,
+      "id": 1173,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-31",
@@ -41727,7 +41423,7 @@ window.TIMESHEET_DATA = {
       "isDistributionWork": true
     },
     {
-      "id": 1184,
+      "id": 1174,
       "member": "Sara",
       "sourceFile": "Outlook / Qin, Sara",
       "date": "2026-07-31",
