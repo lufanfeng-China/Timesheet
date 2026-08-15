@@ -550,6 +550,45 @@ h2 {
   min-height: 276px;
 }
 
+.trend-panel-heading {
+  margin-bottom: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+.monthly-workload-heading {
+  margin-bottom: 18px;
+}
+
+.trend-side-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.trend-side-heading h2 {
+  margin: 0;
+}
+
+.trend-side-heading > div {
+  min-width: 0;
+}
+
+.trend-side-heading > div p {
+  margin-top: 4px;
+}
+
+.trend-side-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: right;
+}
+
 .trend-summary {
   display: flex;
   flex-wrap: wrap;
@@ -743,23 +782,49 @@ h2 {
   gap: 12px;
 }
 
+.detail-toggle {
+  min-width: 104px;
+}
+
+.detail-content[hidden] {
+  display: none;
+}
+
 .trend-tools {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: flex-start;
+  align-items: center;
   gap: 12px;
   min-width: 0;
+  flex: 0 1 auto;
+  margin-left: 8px;
 }
 
 .trend-tools .inline-filter {
-  flex: 1 1 auto;
-  justify-content: flex-end;
+  flex: 0 1 auto;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
   min-width: 0;
 }
 
 .trend-tools .compact-field {
   flex: 0 0 260px;
+}
+
+.trend-select-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: auto;
+}
+
+.trend-select-inline span {
+  white-space: nowrap;
+}
+
+.trend-select-inline select {
+  width: 260px;
 }
 
 .search-box input {
@@ -1158,6 +1223,32 @@ dialog::backdrop {
   .panel-heading.split {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .trend-tools {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .trend-tools .inline-filter {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .trend-select-inline {
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .trend-select-inline select {
+    width: 100%;
+  }
+
+  .trend-side-heading {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .search-box {

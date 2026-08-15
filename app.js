@@ -52,6 +52,7 @@ const state = {
   rangeStart: DATA_DATE_RANGE.start,
   rangeEnd: DATA_DATE_RANGE.end,
   search: "",
+  detailExpanded: false,
   calendarConfig: loadCalendarConfig(),
 };
 
@@ -80,10 +81,14 @@ const els = {
   trendCategoryFilter: document.querySelector("#trendCategoryFilter"),
   trendItemSelect: document.querySelector("#trendItemSelect"),
   weeklyTrendChart: document.querySelector("#weeklyTrendChart"),
+  monthlyWorkloadChart: document.querySelector("#monthlyWorkloadChart"),
+  monthlyWorkloadSummary: document.querySelector("#monthlyWorkloadSummary"),
   memberLoadLegend: document.querySelector("#memberLoadLegend"),
   eventTable: document.querySelector("#eventTable"),
   tableFooter: document.querySelector("#tableFooter"),
   searchInput: document.querySelector("#searchInput"),
+  detailToggleButton: document.querySelector("#detailToggleButton"),
+  detailContent: document.querySelector("#detailContent"),
   exportButton: document.querySelector("#exportButton"),
   calendarConfigButton: document.querySelector("#calendarConfigButton"),
   calendarDialog: document.querySelector("#calendarDialog"),
@@ -373,6 +378,25 @@ function selectedStandardHours() {
     (total, member) => total + effectiveStandardHoursForMember(member),
     0
   );
+}
+
+function effectiveWorkdaysForMemberInRange(member, startText, endText) {
+  const activeStart = memberActiveStartDate(member);
+  return daysBetween(startText, endText)
+    .filter(isConfiguredWorkday)
+    .filter((day) => !activeStart || day >= activeStart);
+}
+
+function selectedMonthWindows() {
+  const range = selectedRangeBounds();
+  return DATA_MONTHS
+    .map((month) => ({
+      value: month.value,
+      label: month.label,
+      start: month.start > range.start ? month.start : range.start,
+      end: month.end < range.end ? month.end : range.end,
+    }))
+    .filter((month) => month.start && month.end && month.start <= month.end);
 }
 
 function isInMemberScope(event) {
@@ -836,6 +860,13 @@ function attachEvents() {
     state.search = event.target.value;
     renderTable();
   });
+
+  if (els.detailToggleButton) {
+    els.detailToggleButton.addEventListener("click", () => {
+      state.detailExpanded = !state.detailExpanded;
+      renderDetailSection();
+    });
+  }
 
   els.exportButton.addEventListener("click", exportCsv);
   els.calendarConfigButton.addEventListener("click", openCalendarDialog);
@@ -1313,10 +1344,36 @@ function weeklyTrendRows() {
   }));
 }
 
+function monthlyWorkloadRows() {
+  const selectedMembers = getSelectedMembers();
+  const monthWindows = selectedMonthWindows();
+  const creditByMonth = new Map();
+
+  creditEvents().forEach((event) => {
+    const monthKey = event.date.slice(0, 7);
+    creditByMonth.set(monthKey, (creditByMonth.get(monthKey) || 0) + Number(event.hours || 0));
+  });
+
+  return monthWindows.map((month) => {
+    const standardHours = selectedMembers.reduce(
+      (total, member) => total + effectiveWorkdaysForMemberInRange(member, month.start, month.end).length * DATA.workdayHours,
+      0
+    );
+    const creditHours = Math.round(((creditByMonth.get(month.value) || 0) + Number.EPSILON) * 100) / 100;
+    return {
+      month: month.value,
+      label: month.label,
+      standardHours,
+      creditHours,
+      workload: standardHours ? creditHours / standardHours : 0,
+    };
+  });
+}
+
 function renderWeeklyTrend() {
   const options = syncTrendSelection();
   const rows = weeklyTrendRows();
-  const width = 720;
+  const width = 460;
   const height = 280;
   const margin = { top: 18, right: 18, bottom: 42, left: 42 };
   const plotWidth = width - margin.left - margin.right;
@@ -1376,6 +1433,67 @@ function renderWeeklyTrend() {
   `;
 }
 
+function renderMonthlyWorkloadChart() {
+  if (!els.monthlyWorkloadChart || !els.monthlyWorkloadSummary) return;
+
+  const rows = monthlyWorkloadRows();
+  const selectedMembers = getSelectedMembers();
+  const subjectLabel = state.selectedMember === "All" ? "Team" : selectedMembers.join(" / ");
+
+  if (!rows.length) {
+    els.monthlyWorkloadSummary.textContent = "";
+    els.monthlyWorkloadChart.innerHTML = `<div class="empty-state">当前范围内没有月度工作负荷数据。</div>`;
+    return;
+  }
+
+  const totalCredit = rows.reduce((sum, row) => sum + row.creditHours, 0);
+  const totalStandard = rows.reduce((sum, row) => sum + row.standardHours, 0);
+  const overallWorkload = totalStandard ? totalCredit / totalStandard : 0;
+  els.monthlyWorkloadSummary.textContent = `${subjectLabel} · ${rows.length} 个月 · ${formatPercent(overallWorkload)}`;
+
+  const width = 420;
+  const height = 280;
+  const margin = { top: 18, right: 18, bottom: 42, left: 42 };
+  const plotWidth = width - margin.left - margin.right;
+  const plotHeight = height - margin.top - margin.bottom;
+  const maxValue = Math.max(1, ...rows.map((row) => row.workload));
+  const yMax = Math.max(1, Math.ceil((maxValue * 100) / 20) * 20 / 100);
+  const ticks = [0, yMax / 2, yMax];
+  const xFor = (index) => margin.left + (index / Math.max(1, rows.length)) * plotWidth;
+  const barWidth = Math.max(36, Math.min(72, plotWidth / Math.max(rows.length, 1) - 18));
+  const yFor = (value) => margin.top + plotHeight - (value / yMax) * plotHeight;
+
+  const grid = ticks
+    .map((tick) => {
+      const y = yFor(tick);
+      return `
+        <line class="grid-line" x1="${margin.left}" y1="${y}" x2="${width - margin.right}" y2="${y}"></line>
+        <text class="axis-label" x="4" y="${y + 4}">${formatPercent(tick)}</text>
+      `;
+    })
+    .join("");
+
+  const bars = rows
+    .map((row, index) => {
+      const x = xFor(index) + ((plotWidth / Math.max(rows.length, 1)) - barWidth) / 2;
+      const barHeight = row.workload > 0 ? Math.max(4, (row.workload / yMax) * plotHeight) : 2;
+      const y = margin.top + plotHeight - barHeight;
+      return `
+        <rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="6" ry="6" fill="#117b73"></rect>
+        <text class="bar-top-label" x="${x + barWidth / 2}" y="${y - 6}">${escapeHtml(formatPercent(row.workload))}</text>
+        <text class="axis-label" x="${x + barWidth / 2 - 18}" y="${height - 8}">${escapeHtml(row.month.slice(5))}</text>
+      `;
+    })
+    .join("");
+
+  els.monthlyWorkloadChart.innerHTML = `
+    <svg class="daily-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="按月团队工作负荷柱状图">
+      ${grid}
+      ${bars}
+    </svg>
+  `;
+}
+
 function renderTable() {
   const events = visibleEvents();
   const limit = 220;
@@ -1416,6 +1534,13 @@ function renderTable() {
 
   const hidden = events.length > limit ? `，仅显示前 ${limit} 条` : "";
   els.tableFooter.textContent = `${events.length.toLocaleString("zh-CN")} 条事件${hidden}`;
+}
+
+function renderDetailSection() {
+  if (!els.detailToggleButton || !els.detailContent) return;
+  els.detailToggleButton.textContent = state.detailExpanded ? "收起明细" : "展开明细";
+  els.detailToggleButton.setAttribute("aria-expanded", String(state.detailExpanded));
+  els.detailContent.hidden = !state.detailExpanded;
 }
 
 function exportCsv() {
@@ -1469,7 +1594,9 @@ function render() {
   renderCategoryBars();
   renderProjectSpend();
   renderWeeklyTrend();
+  renderMonthlyWorkloadChart();
   renderTable();
+  renderDetailSection();
   renderCalendarConfig();
 }
 

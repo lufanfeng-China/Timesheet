@@ -97,6 +97,35 @@
 
           <section class="grid two">
             <article class="panel">
+              <div class="panel-heading split trend-panel-heading">
+                <div>
+                  <h2>按周趋势</h2>
+                </div>
+                <div class="trend-tools">
+                  <div class="inline-filter" id="trendCategoryFilter" aria-label="按周趋势类别"></div>
+                  <label class="field-label compact-field trend-select-inline">
+                    <span>项目 / 系统</span>
+                    <select id="trendItemSelect"></select>
+                  </label>
+                </div>
+              </div>
+              <div class="chart-frame" id="weeklyTrendChart"></div>
+            </article>
+
+            <article class="panel">
+              <div class="trend-side-heading monthly-workload-heading">
+                <div>
+                  <h2>按月工作负荷</h2>
+                  <p>按月份查看当前成员范围内的 team 工作负荷。</p>
+                </div>
+                <p id="monthlyWorkloadSummary"></p>
+              </div>
+              <div class="chart-frame" id="monthlyWorkloadChart"></div>
+            </article>
+          </section>
+
+          <section class="grid two">
+            <article class="panel">
               <div class="panel-heading split">
                 <div>
                   <h2>CR 上线趋势</h2>
@@ -132,27 +161,13 @@
           <section class="panel wide">
             <div class="panel-heading split">
               <div>
-                <h2>按周趋势</h2>
-                <p>按周查看选定项目 / 系统的工时趋势，最小颗粒度为项目 / 系统。</p>
-              </div>
-              <div class="trend-tools">
-                <div class="inline-filter" id="trendCategoryFilter" aria-label="按周趋势类别"></div>
-                <label class="field-label compact-field">
-                  <span>项目 / 系统</span>
-                  <select id="trendItemSelect"></select>
-                </label>
-              </div>
-            </div>
-            <div class="chart-frame" id="weeklyTrendChart"></div>
-          </section>
-
-          <section class="panel wide">
-            <div class="panel-heading split">
-              <div>
                 <h2>明细事件</h2>
                 <p>用于核对具体日历条目，默认按日期和开始时间排序。</p>
               </div>
               <div class="detail-tools">
+                <button class="ghost-button detail-toggle" id="detailToggleButton" type="button" aria-expanded="false">
+                  展开明细
+                </button>
                 <div class="inline-filter" id="detailCategoryFilter" aria-label="明细事件类别"></div>
                 <label class="search-box">
                   <span>搜索</span>
@@ -160,24 +175,26 @@
                 </label>
               </div>
             </div>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>日期</th>
-                    <th>成员</th>
-                    <th>时间</th>
-                    <th>小时</th>
-                    <th>分类</th>
-                    <th>项目 / 系统</th>
-                    <th>主题</th>
-                    <th>状态</th>
-                  </tr>
-                </thead>
-                <tbody id="eventTable"></tbody>
-              </table>
+            <div class="detail-content" id="detailContent" hidden>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>日期</th>
+                      <th>成员</th>
+                      <th>时间</th>
+                      <th>小时</th>
+                      <th>分类</th>
+                      <th>项目 / 系统</th>
+                      <th>主题</th>
+                      <th>状态</th>
+                    </tr>
+                  </thead>
+                  <tbody id="eventTable"></tbody>
+                </table>
+              </div>
+              <div class="table-footer" id="tableFooter"></div>
             </div>
-            <div class="table-footer" id="tableFooter"></div>
           </section>
         </main>
       </div>
